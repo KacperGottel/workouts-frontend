@@ -1,0 +1,9 @@
+.workout{
+  display: flex;
+  flex-direction: column;
+}
+.workout-list{
+}
+.workout-title{
+  color: #9d35ff;
+}

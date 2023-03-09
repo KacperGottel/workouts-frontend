@@ -4,14 +4,19 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {RouterModule, Routes} from "@angular/router";
 import {HeaderComponent} from './header/component/header.component';
-import { HomeComponent } from './home/component/home/home.component';
-import { SpinnerComponent } from './home/component/spinner/spinner.component';
+import {HomeComponent} from './main/component/home/home.component';
+import {SpinnerComponent} from './main/component/spinner/spinner.component';
+import {WorkoutComponent} from './main/component/workout/workout.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 const routes: Routes = [
-  {
-    path: "home", component: HomeComponent, canActivate : [],
-  }];
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: "home", component: HomeComponent, canActivate: [], children: [
+      {path: "spinner", component: SpinnerComponent},
+      {path: "workout", component: WorkoutComponent}
+    ]},
+];
 
 @NgModule({
   declarations: [
@@ -19,11 +24,13 @@ const routes: Routes = [
     HeaderComponent,
     HomeComponent,
     SpinnerComponent,
+    WorkoutComponent,
 
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

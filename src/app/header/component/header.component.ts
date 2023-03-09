@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {SharedService} from "../../shared.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  constructor(private sharedService: SharedService, private router: Router) {
+  }
 
+  goHome() {
+    this.sharedService.isSpinnerEnabledEmitter.emit(true);
+  }
 }
