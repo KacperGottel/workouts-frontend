@@ -1,17 +1,32 @@
 .workout{
   display: flex;
-  flex-direction: column;
   border: 1px solid;
   border-image-slice: 1;
-  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-  color: rgba(252, 119, 222, 0.81);
-  width: 800px;
-  height: 600px;
+  border-image-source: linear-gradient(to left,#d53a9d, #743ad5);
+  width: 900px;
+  height: 700px;
 }
 .workout-list{
+  padding: 50px;
 }
 
-.excercise{
+.exercise{
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 1.75rem;
+  color: rgba(169, 2, 134, 0.81);
+  text-shadow: 1px 1px 1px hotpink;
+  display: flex;
+  align-items: start;
+}
 
+.name{
+
+}
+.series{
+
+}
+.reps{
 }
 
