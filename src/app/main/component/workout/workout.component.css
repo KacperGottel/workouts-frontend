@@ -1,9 +1,17 @@
 .workout{
   display: flex;
   flex-direction: column;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  color: rgba(252, 119, 222, 0.81);
+  width: 800px;
+  height: 600px;
 }
 .workout-list{
 }
-.workout-title{
-  color: #9d35ff;
+
+.excercise{
+
 }
+
