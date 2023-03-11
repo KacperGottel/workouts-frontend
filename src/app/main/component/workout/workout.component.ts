@@ -8,13 +8,15 @@ import {WorkoutService} from "./service/workout.service";
   styleUrls: ['./workout.component.css']
 })
 export class WorkoutComponent implements OnInit{
-  workout: Workout;
+  workout: Workout | undefined;
 
   constructor(private workoutService: WorkoutService) {
   }
 
   ngOnInit(): void {
-    this.workout = this.workoutService.getWorkout();
+    this.workoutService.getWorkout().subscribe(workout => {
+      this.workout = workout;
+    });
   }
 
 
