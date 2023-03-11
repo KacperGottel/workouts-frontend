@@ -1,0 +1,58 @@
+.header {
+  /*background-color: black;*/
+  /*background: linear-gradient(to bottom, black, #110015);*/
+  background-color: transparent;
+  background-image: url("src/assets/background4.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60px;
+  max-width: 100%;
+  width: 100%;
+  margin-top: 5px;
+  display: flex;
+}
+
+.neon-button button{
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: rgba(168, 129, 236, 0.99);
+  width: 125px;
+  padding: 10px;
+  background: #553e7a none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #553e7a;
+  border-radius: 0;
+
+}
+
+.neon-button button:hover, button:focus{
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  /*border: 5px solid*/
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  color: rgba(252, 119, 222, 0.81);
+  background: -webkit-repeating-linear-gradient(#743ad5,#d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.button-wrapper{
+  display: flex;
+  justify-content: center;
+}
+.button-list{
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 55px;
+  margin: auto;
+}
+
+
