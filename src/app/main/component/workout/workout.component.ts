@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Workout} from "../../../model/Workout";
 import {WorkoutService} from "./service/workout.service";
+import {workout} from "../../../model/Api";
 
 @Component({
   selector: 'app-workout',
@@ -17,6 +18,7 @@ export class WorkoutComponent implements OnInit{
     this.workoutService.getWorkout().subscribe(workout => {
       this.workout = workout;
     });
+    console.log(workout.toString());
   }
 
 

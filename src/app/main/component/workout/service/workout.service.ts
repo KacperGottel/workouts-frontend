@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {Workout} from "../../../../model/Workout";
 import {HttpClient} from "@angular/common/http";
 import {workout} from "../../../../model/Api";
+import {environment} from "../../../../../enviroment/environment";
 
 @Injectable({
   providedIn: 'root'
