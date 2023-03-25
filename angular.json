@@ -34,6 +34,8 @@
             ]
           },
           "configurations": {
+            "dev": {},
+            "prod": {},
             "production": {
               "budgets": [
                 {
@@ -58,11 +60,17 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "dev"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "dev": {
+              "browserTarget": "workouts-frontend:build:dev"
+            },
+            "prod": {
+              "browserTarget": "workouts-frontend:build:prod"
+            },
             "production": {
               "browserTarget": "workouts-frontend:build:production"
             },

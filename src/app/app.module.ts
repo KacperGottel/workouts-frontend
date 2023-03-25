@@ -7,15 +7,19 @@ import {HeaderComponent} from './header/component/header.component';
 import {HomeComponent} from './main/component/home/home.component';
 import {SpinnerComponent} from './main/component/spinner/spinner.component';
 import {WorkoutComponent} from './main/component/workout/workout.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthService} from "./auth/auth.service";
+import {TokenInterceptor} from "./auth/token.interceptor";
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: "home", component: HomeComponent, canActivate: [], children: [
+  {
+    path: "home", component: HomeComponent, canActivate: [], children: [
       {path: "spinner", component: SpinnerComponent},
       {path: "workout", component: WorkoutComponent}
-    ]},
+    ]
+  },
 ];
 
 @NgModule({
@@ -32,7 +36,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

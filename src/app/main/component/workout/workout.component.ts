@@ -1,7 +1,20 @@
 import {Component, OnInit} from '@angular/core';
-import {Workout} from "../../../model/Workout";
+import {Exercise, ExerciseCategory, Workout} from "../../../model/Workout";
 import {WorkoutService} from "./service/workout.service";
-import {workout} from "../../../model/Api";
+import {AuthService} from "../../../auth/auth.service";
+
+function initWorkout() : Workout {
+  return new Workout(
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+    new Exercise(1,ExerciseCategory.PUSH, '404 - NOT FOUND', '', '',''),
+  );
+}
 
 @Component({
   selector: 'app-workout',
@@ -9,17 +22,16 @@ import {workout} from "../../../model/Api";
   styleUrls: ['./workout.component.css']
 })
 export class WorkoutComponent implements OnInit{
-  workout: Workout | undefined;
+   workout = initWorkout();
 
-  constructor(private workoutService: WorkoutService) {
+
+  constructor(private workoutService: WorkoutService, private authService: AuthService) {
   }
 
   ngOnInit(): void {
+    this.authService.login('kacper@test.pl','W^7HH345GhloL0i^').subscribe();
     this.workoutService.getWorkout().subscribe(workout => {
       this.workout = workout;
     });
-    console.log(workout.toString());
   }
-
-
 }
