@@ -1,44 +1,41 @@
+import {JsonObject, JsonProperty} from 'json2typescript';
+
+@JsonObject('WorkoutDTO')
 export class Workout {
-  constructor(mobility: Exercise, plyo: Exercise, push: Exercise, pull: Exercise, legsPush: Exercise, legsPull: Exercise, accessory: Exercise, abs: Exercise) {
-    this.mobility = mobility;
-    this.plyo = plyo;
-    this.push = push;
-    this.pull = pull;
-    this.legsPush = legsPush;
-    this.legsPull = legsPull;
-    this.accessory = accessory;
-    this.abs = abs;
-  }
 
-  mobility: Exercise;
-  plyo: Exercise;
-  push: Exercise;
-  pull: Exercise;
-  legsPush: Exercise;
-  legsPull: Exercise;
-  accessory: Exercise;
-  abs: Exercise;
+  @JsonProperty(String, "mobility")
+  mobility?: Exercise = undefined;
+  @JsonProperty(String, "plyo")
+  plyo?: Exercise = undefined;
+  @JsonProperty(String, "push")
+  push?: Exercise = undefined;
+  @JsonProperty(String, "pull")
+  pull?: Exercise = undefined;
+  @JsonProperty(String, "legs_push")
+  legsPush?: Exercise = undefined;
+  @JsonProperty(String, "legs_pull")
+  legsPull?: Exercise = undefined;
+  @JsonProperty(String, "accessory")
+  accessory?: Exercise = undefined;
+  @JsonProperty(String, "abs")
+  abs?: Exercise = undefined;
 }
-
+@JsonObject('ExerciseDTO')
 export class Exercise {
 
-  constructor(id: number, category: ExerciseCategory, name: string, description: string, videoUrl: string, imgUrl: string) {
-    this.id = id;
-    this.category = category;
-    this.name = name;
-    this.description = description;
-    this.videoUrl = videoUrl;
-    this.imgUrl = imgUrl;
-  }
-
-  id: number;
-  category: ExerciseCategory;
-  name: string;
-  description: string;
-  videoUrl: string;
-  imgUrl: string;
+  @JsonProperty(String, "id")
+  id?: number | undefined;
+  @JsonProperty(String, "category")
+  category?: ExerciseCategory = undefined;
+  @JsonProperty(String, "name")
+  name?: string = undefined;
+  @JsonProperty(String, "description")
+  description?: string = undefined;
+  @JsonProperty(String, "video_url")
+  videoUrl?: string = undefined;
+  @JsonProperty(String, "img_url")
+  imgUrl?: string = undefined;
 }
-
 export enum ExerciseCategory {
   MOBILITY = "MOBILITY",
   PLYO = "PLYO",
