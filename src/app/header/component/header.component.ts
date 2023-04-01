@@ -12,6 +12,7 @@ export class HeaderComponent {
   }
 
   goHome() {
+    this.router.navigate(['home','spinner']);
     this.sharedService.isSpinnerEnabledEmitter.emit(true);
   }
 }

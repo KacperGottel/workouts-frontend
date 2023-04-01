@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SpinnerComponent} from "../spinner/spinner.component";
 import {SharedService} from "../../../shared.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -10,11 +10,10 @@ import {SharedService} from "../../../shared.service";
 export class HomeComponent implements OnInit {
   isSpinnerActive: boolean = true;
 
-  constructor(private sharedService: SharedService) {
+  constructor(private sharedService: SharedService, private router: Router) {
   }
 
   ngOnInit(): void {
     this.sharedService.isSpinnerEnabledEmitter.subscribe(val => this.isSpinnerActive = val);
   }
-
 }

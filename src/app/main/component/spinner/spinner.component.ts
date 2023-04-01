@@ -10,10 +10,11 @@ import {SharedService} from "../../../shared.service";
 export class SpinnerComponent {
 
 
-  constructor(private sharedService: SharedService) {
+  constructor(private sharedService: SharedService, private router: Router) {
   }
 
   clickDumbbell() {
+    this.router.navigate(['home','workout']);
     this.sharedService.isSpinnerEnabledEmitter.emit(false);
   }
 }

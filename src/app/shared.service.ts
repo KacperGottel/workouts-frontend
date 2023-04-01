@@ -13,6 +13,6 @@ export class SharedService implements OnInit{
   ngOnInit(): void {
     this.isSpinnerEnabledEmitter.subscribe(val => {
       this.isSpinnerEnabled = val;
-    })
+    });
   }
 }

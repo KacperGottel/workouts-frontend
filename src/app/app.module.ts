@@ -8,14 +8,14 @@ import {HomeComponent} from './main/component/home/home.component';
 import {SpinnerComponent} from './main/component/spinner/spinner.component';
 import {WorkoutComponent} from './main/component/workout/workout.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {AuthService} from "./auth/auth.service";
 import {TokenInterceptor} from "./auth/token.interceptor";
 
-
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: '/home/spinner', pathMatch: 'full'},
+  {path: 'home', redirectTo: '/home/spinner', pathMatch: 'full'},
   {
-    path: "home", component: HomeComponent, canActivate: [], children: [
+    path: "home", component: HomeComponent, canActivate: [],
+    children: [
       {path: "spinner", component: SpinnerComponent},
       {path: "workout", component: WorkoutComponent}
     ]
@@ -34,10 +34,10 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

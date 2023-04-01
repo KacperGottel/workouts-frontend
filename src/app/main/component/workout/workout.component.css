@@ -11,7 +11,7 @@
   opacity: 0.8;
 }
 
-.workout:hover{
+.workout:hover {
   opacity: 1;
 }
 
@@ -35,7 +35,7 @@
   height: 100px;
 }
 
-.exercise:hover{
+.exercise:hover {
   opacity: 1;
   cursor: pointer;
 }
@@ -65,6 +65,20 @@
 .reps {
   color: rgba(154, 2, 121, 0.81);
   text-shadow: 1px 1px 1px #f864b4;
+}
+
+.error {
+  color:  #9A0279CE;
+  font-size: xx-large;
+  font-weight: lighter;
+  text-shadow: 1px 1px 1px #f864b4;
+  width: 900px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  opacity: 0.8;
 }
 
 
