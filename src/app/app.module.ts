@@ -12,7 +12,6 @@ import {TokenInterceptor} from "./auth/token.interceptor";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home/spinner', pathMatch: 'full'},
-  {path: 'home', redirectTo: '/home/spinner', pathMatch: 'full'},
   {
     path: "home", component: HomeComponent, canActivate: [],
     children: [

@@ -1,41 +1,5 @@
-import {JsonObject, JsonProperty} from 'json2typescript';
+import {JsonObject, JsonProperty} from "json2typescript";
 
-@JsonObject('WorkoutDTO')
-export class Workout {
-
-  @JsonProperty(String, "mobility")
-  mobility?: Exercise = undefined;
-  @JsonProperty(String, "plyo")
-  plyo?: Exercise = undefined;
-  @JsonProperty(String, "push")
-  push?: Exercise = undefined;
-  @JsonProperty(String, "pull")
-  pull?: Exercise = undefined;
-  @JsonProperty(String, "legs_push")
-  legsPush?: Exercise = undefined;
-  @JsonProperty(String, "legs_pull")
-  legsPull?: Exercise = undefined;
-  @JsonProperty(String, "accessory")
-  accessory?: Exercise = undefined;
-  @JsonProperty(String, "abs")
-  abs?: Exercise = undefined;
-}
-@JsonObject('ExerciseDTO')
-export class Exercise {
-
-  @JsonProperty(String, "id")
-  id?: number | undefined;
-  @JsonProperty(String, "category")
-  category?: ExerciseCategory = undefined;
-  @JsonProperty(String, "name")
-  name?: string = undefined;
-  @JsonProperty(String, "description")
-  description?: string = undefined;
-  @JsonProperty(String, "video_url")
-  videoUrl?: string = undefined;
-  @JsonProperty(String, "img_url")
-  imgUrl?: string = undefined;
-}
 export enum ExerciseCategory {
   MOBILITY = "MOBILITY",
   PLYO = "PLYO",
@@ -45,4 +9,43 @@ export enum ExerciseCategory {
   LEGS_PULL = "LEGS_PULL",
   ACCESSORY = "ACCESSORY",
   ABS = "ABS"
+}
+
+@JsonObject('ExerciseDTO')
+export class Exercise {
+
+  @JsonProperty('id', Number, true)
+  public id: number | undefined;
+  @JsonProperty('category', [ExerciseCategory], true)
+  public category: ExerciseCategory | undefined;
+  @JsonProperty('name', String, true)
+  public name: string | undefined;
+  @JsonProperty('description', String, true)
+  public description: string | undefined;
+  @JsonProperty('video_url', String, true)
+  public videoUrl: string | undefined;
+  @JsonProperty('img_url', String, true)
+  public imgUrl: string | undefined;
+}
+
+
+@JsonObject('WorkoutDTO')
+export class Workout {
+
+  @JsonProperty('mobility', [Exercise], true)
+  public mobility: Exercise | undefined;
+  @JsonProperty('plyo', [Exercise], true)
+  public plyo: Exercise | undefined;
+  @JsonProperty('push', [Exercise], true)
+  public push: Exercise | undefined;
+  @JsonProperty('pull', [Exercise], true)
+  public pull: Exercise | undefined;
+  @JsonProperty('legs_push', [Exercise], true)
+  public legsPush: Exercise | undefined;
+  @JsonProperty('legs_pull', [Exercise], true)
+  public legsPull: Exercise | undefined;
+  @JsonProperty('accessory', [Exercise], true)
+  public accessory: Exercise | undefined;
+  @JsonProperty('abs', [Exercise], true)
+  public abs: Exercise | undefined;
 }

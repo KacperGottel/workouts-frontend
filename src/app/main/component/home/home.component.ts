@@ -14,6 +14,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  if(this.isSpinnerActive) {
+    this.router.navigate(['home', 'spinner']);
+  }
     this.sharedService.isSpinnerEnabledEmitter.subscribe(val => this.isSpinnerActive = val);
   }
 }

@@ -1,8 +1,8 @@
-<div class="error" *ngIf="workout == null || workout == undefined">
+<div class="error" *ngIf="!workout">
   <p>
     Sorry, we have server error! Please, try to reload page or wait few minutes...</p>
 </div>
-<div class="workout" *ngIf="workout != null || workout != undefined">
+<div class="workout" *ngIf="workout">
   <div class="workout-list">
     <div class="exercise">
       <div class="name">[{{workout.mobility?.category}}] {{workout.mobility?.name}}</div>
