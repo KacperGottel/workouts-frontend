@@ -38,9 +38,9 @@ export class Workout {
   @JsonProperty('pull', [Exercise], true)
   public pull: Exercise | undefined
   @JsonProperty('legs_push', [Exercise], true)
-  public legsPush: Exercise | undefined
+  public legs_push: Exercise | undefined
   @JsonProperty('legs_pull', [Exercise], true)
-  public legsPull: Exercise | undefined
+  public legs_pull: Exercise | undefined
   @JsonProperty('accessory', [Exercise], true)
   public accessory: Exercise | undefined
   @JsonProperty('abs', [Exercise], true)
