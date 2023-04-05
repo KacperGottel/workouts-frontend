@@ -1,22 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {SharedService} from "../../../shared.service";
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core'
+import { SharedService } from '../../../shared.service'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  isSpinnerActive: boolean = true;
+  isSpinnerActive: boolean = true
 
-  constructor(private sharedService: SharedService, private router: Router) {
-  }
+  constructor(private sharedService: SharedService, private router: Router) {}
 
   ngOnInit(): void {
-  if(this.isSpinnerActive) {
-    this.router.navigate(['home', 'spinner']);
-  }
-    this.sharedService.isSpinnerEnabledEmitter.subscribe(val => this.isSpinnerActive = val);
+    if (this.isSpinnerActive) {
+      this.router.navigate(['home', 'spinner'])
+    }
+    this.sharedService.isSpinnerEnabledEmitter.subscribe(
+      (val) => (this.isSpinnerActive = val)
+    )
   }
 }

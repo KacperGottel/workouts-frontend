@@ -1,21 +1,16 @@
-import {Injectable} from '@angular/core';
-import {map, Observable} from "rxjs";
-import {Exercise, Workout} from "../../../../model/Workout";
-import {HttpClient} from "@angular/common/http";
-import {workout} from "../../../../model/Api";
-import {JsonConvert} from "json2typescript";
+import { Injectable } from '@angular/core'
+import { Observable } from 'rxjs'
+import { Workout } from '../../../../model/Workout'
+import { HttpClient } from '@angular/common/http'
+import { workout } from '../../../../model/Api'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WorkoutService {
-
- private jsonConverter: JsonConvert = new JsonConvert();
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
   getWorkout(): Observable<Workout> {
-    return this.http.get<Workout>(workout).pipe(map(response => this.jsonConverter.deserialize(response, Workout) as Workout));
+    return this.http.get<Workout>(workout)
   }
 }
-

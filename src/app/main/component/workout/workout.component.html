@@ -1,53 +1,71 @@
 <div class="error" *ngIf="!workout">
   <p>
-    Sorry, we have server error! Please, try to reload page or wait few minutes...</p>
+    Sorry, we have server error! Please, try to reload page or wait few
+    minutes...
+  </p>
 </div>
 <div class="workout" *ngIf="workout">
   <div class="workout-list">
     <div class="exercise">
-      <div class="name">[{{workout.mobility?.category}}] {{workout.mobility?.name}}</div>
+      <div class="name">
+        [{{ workout.mobility?.category }}] {{ workout.mobility?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.plyo?.category}}] {{workout.plyo?.name}}</div>
+      <div class="name">
+        [{{ workout.plyo?.category }}] {{ workout.plyo?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.legsPush?.category}}] {{workout.legsPush?.name}}</div>
+      <div class="name">
+        [{{ workout.legsPush?.category }}] {{ workout.legsPush?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.pull?.category}}] {{workout.pull?.name}}</div>
+      <div class="name">
+        [{{ workout.pull?.category }}] {{ workout.pull?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.legsPull?.category}}] {{workout.legsPull?.name}}</div>
+      <div class="name">
+        [{{ workout.legsPull?.category }}] {{ workout.legsPull?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.push?.category}}] {{workout.push?.name}}</div>
+      <div class="name">
+        [{{ workout.push?.category }}] {{ workout.push?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.abs?.category}}] {{workout.abs?.name}}</div>
+      <div class="name">
+        [{{ workout.abs?.category }}] {{ workout.abs?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>
     </div>
     <div class="exercise">
-      <div class="name">[{{workout.accessory?.category}}] {{workout.accessory?.name}}</div>
+      <div class="name">
+        [{{ workout.accessory?.category }}] {{ workout.accessory?.name }}
+      </div>
       <div class="series">4</div>
       <div class="x">x</div>
       <div class="reps">10</div>

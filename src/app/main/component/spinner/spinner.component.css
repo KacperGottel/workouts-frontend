@@ -1,9 +1,7 @@
-.dumbbell{
+.dumbbell {
   opacity: 0.2;
-
 }
 
-.dumbbell:hover{
+.dumbbell:hover {
   opacity: 1;
 }
-

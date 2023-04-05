@@ -59,7 +59,6 @@
   padding-left: 5px;
   margin-right: 25px;
   justify-content: end;
-
 }
 
 .reps {
@@ -68,7 +67,7 @@
 }
 
 .error {
-  color:  #9A0279CE;
+  color: #9a0279ce;
   font-size: xx-large;
   font-weight: lighter;
   text-shadow: 1px 1px 1px #f864b4;
@@ -80,6 +79,3 @@
   align-content: flex-start;
   opacity: 0.8;
 }
-
-
-
