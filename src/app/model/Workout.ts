@@ -25,6 +25,10 @@ export class Exercise {
   public videoUrl: string | undefined
   @JsonProperty('img_url', String, true)
   public imgUrl: string | undefined
+  @JsonProperty("series", String, true)
+  public series: string | undefined
+  @JsonProperty("reps", String, true)
+  public reps: string | undefined
 }
 
 @JsonObject('WorkoutDTO')
