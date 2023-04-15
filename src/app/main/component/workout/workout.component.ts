@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-import { Workout } from '../../../model/Workout'
+import { Exercise, Workout } from '../../../model/Workout'
 import { WorkoutService } from './service/workout.service'
 import { AuthService } from '../../../auth/auth.service'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { ExerciseDetailsModalComponent } from './exercise-details-modal/exercise-details-modal.component'
 
 @Component({
   selector: 'app-workout',
@@ -13,7 +15,8 @@ export class WorkoutComponent implements OnInit {
 
   constructor(
     private workoutService: WorkoutService,
-    private authService: AuthService
+    private authService: AuthService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
@@ -21,5 +24,11 @@ export class WorkoutComponent implements OnInit {
     this.workoutService.getWorkout().subscribe((workout) => {
       this.workout = workout
     })
+  }
+
+  showExerciseDetails(exercise: Exercise | undefined): void {
+    if (exercise) {
+      this.modalService.open(ExerciseDetailsModalComponent)
+    }
   }
 }

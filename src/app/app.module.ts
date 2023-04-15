@@ -9,6 +9,8 @@ import { SpinnerComponent } from './main/component/spinner/spinner.component'
 import { WorkoutComponent } from './main/component/workout/workout.component'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { TokenInterceptor } from './auth/token.interceptor'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { ExerciseDetailsModalComponent } from './main/component/workout/exercise-details-modal/exercise-details-modal.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/spinner', pathMatch: 'full' },
@@ -30,8 +32,14 @@ const routes: Routes = [
     HomeComponent,
     SpinnerComponent,
     WorkoutComponent,
+    ExerciseDetailsModalComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
+  imports: [
+    BrowserModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    NgbModule,
+  ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
   ],
