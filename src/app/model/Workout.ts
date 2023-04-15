@@ -1,14 +1,10 @@
 import { JsonObject, JsonProperty } from 'json2typescript'
 
 export enum ExerciseCategory {
-  MOBILITY = 'MOBILITY',
-  PLYO = 'PLYO',
   PUSH = 'PUSH',
   PULL = 'PULL',
-  LEGS_PUSH = 'LEGS_PUSH',
-  LEGS_PULL = 'LEGS_PULL',
+  LEGS = 'LEGS',
   ACCESSORY = 'ACCESSORY',
-  ABS = 'ABS',
 }
 
 @JsonObject('ExerciseDTO')
@@ -33,20 +29,12 @@ export class Exercise {
 
 @JsonObject('WorkoutDTO')
 export class Workout {
-  @JsonProperty('mobility', [Exercise], true)
-  public mobility: Exercise | undefined
-  @JsonProperty('plyo', [Exercise], true)
-  public plyo: Exercise | undefined
   @JsonProperty('push', [Exercise], true)
   public push: Exercise | undefined
   @JsonProperty('pull', [Exercise], true)
   public pull: Exercise | undefined
-  @JsonProperty('legs_push', [Exercise], true)
-  public legs_push: Exercise | undefined
-  @JsonProperty('legs_pull', [Exercise], true)
-  public legs_pull: Exercise | undefined
+  @JsonProperty('legs', [Exercise], true)
+  public legs: Exercise | undefined
   @JsonProperty('accessory', [Exercise], true)
   public accessory: Exercise | undefined
-  @JsonProperty('abs', [Exercise], true)
-  public abs: Exercise | undefined
 }
