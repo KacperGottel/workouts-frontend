@@ -2,8 +2,8 @@
   border: 1px solid;
   border-image-slice: 1;
   border-image-source: linear-gradient(to left, #d53a9d, #743ad5);
-  width: 900px;
-  height: 700px;
+  width: 1100px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,15 +11,15 @@
   opacity: 0.8;
 }
 
-.workout:hover{
-  opacity: 1;
+.workout:hover {
+  opacity: 0.9;
 }
 
 .workout-list {
   padding: 25px;
   margin: 15px;
-  width: 900px;
-  height: 700px;
+  width: 1100px;
+  height: 400px;
   display: flex;
   flex-direction: column;
 }
@@ -29,13 +29,13 @@
   text-decoration: #010101;
   font-family: system-ui;
   font-weight: lighter;
-  font-size: 2.75rem;
+  font-size: 2.4rem;
   display: flex;
   flex-flow: row;
   height: 100px;
 }
 
-.exercise:hover{
+.exercise:hover {
   opacity: 1;
   cursor: pointer;
 }
@@ -43,7 +43,7 @@
 .name {
   color: rgba(154, 2, 121, 0.81);
   text-shadow: 1px 1px 1px #743ad5;
-  width: 700px;
+  width: 900px;
 }
 
 .series {
@@ -59,7 +59,6 @@
   padding-left: 5px;
   margin-right: 25px;
   justify-content: end;
-
 }
 
 .reps {
@@ -67,5 +66,16 @@
   text-shadow: 1px 1px 1px #f864b4;
 }
 
-
-
+.error {
+  color: #9a0279ce;
+  font-size: xx-large;
+  font-weight: lighter;
+  text-shadow: 1px 1px 1px #f864b4;
+  width: 900px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+  opacity: 0.8;
+}
