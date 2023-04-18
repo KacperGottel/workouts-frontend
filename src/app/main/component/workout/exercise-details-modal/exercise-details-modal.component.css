@@ -1,0 +1,45 @@
+.exercise-details-modal {
+  width: 900px;
+  height: 900px;
+  background-color: #010101;
+  border: 1px solid #690339;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.neon-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #6b5194;
+  width: 125px;
+  padding: 10px;
+  background: #6b5194 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #6b5194;
+  border-radius: 0;
+}
+
+.neon-button button:hover,
+button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  /*border: 5px solid*/
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  color: rgba(252, 119, 222, 0.81);
+  background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: end;
+}

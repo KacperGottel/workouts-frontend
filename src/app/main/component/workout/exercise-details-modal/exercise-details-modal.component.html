@@ -1,7 +1,19 @@
-<div class="">
+<div class="exercise-details-modal">
   <div>
-    CONTENT
+    <div>
+      LIST:
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+      <div>1</div>
+    </div>
   </div>
-  <button type="button" class="neon-button" (click)="modal.dismiss('Cancel')">Close</button>
-  <button type="button" class="neon-button" (click)="modal.close('Save')">Save changes</button>
+  <div class="button-wrapper">
+    <div class="neon-button">
+      <button (click)="modal.dismiss('Cancel')">Close</button>
+    </div>
+    <div class="neon-button">
+      <button (click)="modal.close('Save')">Save</button>
+    </div>
+  </div>
 </div>
