@@ -1,12 +1,27 @@
-.exercise-details-modal {
-  width: 900px;
-  height: 900px;
-  background-color: #010101;
-  border: 1px solid #690339;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.exercise-details-modal .modal-content {
+    background: linear-gradient(black 75%, #470bab);
+    opacity: 0.9;
 }
+
+.exercise-details-modal .modal-header {
+    background: linear-gradient(black 75%, #470bab);
+    opacity: 0.9;
+}
+
+.exercise-details-modal .modal-footer {
+    background: linear-gradient(black 75%, #470bab);
+    opacity: 0.9;
+}
+
+/*.exercise-details-modal {*/
+/*  width: 900px;*/
+/*  height: 900px;*/
+/*  background: linear-gradient(black 75%, #470bab);*/
+/*  opacity: 0.9;*/
+/*  border: 1px solid #7d3eea;*/
+/*  display: flex;*/
+/*  position: fixed;*/
+/*}*/
 
 .neon-button button {
   text-decoration: inherit;
@@ -41,5 +56,6 @@ button:focus {
 
 .button-wrapper {
   display: flex;
-  justify-content: end;
+}
+.exercise-details-list {
 }

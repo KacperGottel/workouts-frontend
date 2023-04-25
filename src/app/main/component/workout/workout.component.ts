@@ -8,7 +8,10 @@ import { ExerciseDetailsModalComponent } from './exercise-details-modal/exercise
 @Component({
   selector: 'app-workout',
   templateUrl: './workout.component.html',
-  styleUrls: ['./workout.component.css'],
+  styleUrls: [
+    './workout.component.css',
+    '../workout/exercise-details-modal/exercise-details-modal.component.css',
+  ],
 })
 export class WorkoutComponent implements OnInit {
   workout: Workout = new Workout()
@@ -28,7 +31,9 @@ export class WorkoutComponent implements OnInit {
 
   showExerciseDetails(exercise: Exercise | undefined): void {
     if (exercise) {
-      this.modalService.open(ExerciseDetailsModalComponent)
+      this.modalService.open(ExerciseDetailsModalComponent, {
+        windowClass: 'exercise-details-modal',
+      })
     }
   }
 }

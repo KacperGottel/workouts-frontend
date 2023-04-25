@@ -1,19 +1,17 @@
-<div class="exercise-details-modal">
-  <div>
-    <div>
-      LIST:
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-      <div>1</div>
-    </div>
+<div class='exercise-details-modal'>
+  <div class='modal-header'>modal-header</div>
+  <div class='modal-content'>
+    <div class='exercise-details-list'>LIST</div>
   </div>
-  <div class="button-wrapper">
-    <div class="neon-button">
-      <button (click)="modal.dismiss('Cancel')">Close</button>
-    </div>
-    <div class="neon-button">
-      <button (click)="modal.close('Save')">Save</button>
-    </div>
+  <div class='modal-footer'>
+    <div class='button-wrapper'>
+          <div class='neon-button'>
+            <button (click)="modal.dismiss('Cancel')">Close</button>
+          </div>
+          <div class='neon-button'>
+            <button (click)="modal.close('Save')">Save</button>
+          </div>
+        </div>
   </div>
 </div>
+
