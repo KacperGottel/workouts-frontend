@@ -1,7 +1,11 @@
 <div class='exercise-details-modal'>
-  <div class='modal-header'>modal-header</div>
+  <div class='modal-header'>{{exercise?.name | uppercase}}</div>
   <div class='modal-content'>
-    <div class='exercise-details-list'>LIST</div>
+    <div>{{exercise?.description}}</div>
+    <div>{{exercise?.imgUrl}}</div>
+    <div>{{exercise?.videoUrl}}</div>
+    <div>{{exercise?.reps}}</div>
+    <div>{{exercise?.series}}</div>
   </div>
   <div class='modal-footer'>
     <div class='button-wrapper'>

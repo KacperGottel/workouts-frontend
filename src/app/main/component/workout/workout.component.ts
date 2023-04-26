@@ -26,14 +26,17 @@ export class WorkoutComponent implements OnInit {
     this.authService.login('kacper@test.pl', 'W^7HH345GhloL0i^').subscribe()
     this.workoutService.getWorkout().subscribe((workout) => {
       this.workout = workout
+      console.log(this.workout)
     })
   }
 
   showExerciseDetails(exercise: Exercise | undefined): void {
     if (exercise) {
-      this.modalService.open(ExerciseDetailsModalComponent, {
+      const modalRef = this.modalService.open(ExerciseDetailsModalComponent, {
         windowClass: 'exercise-details-modal',
+        size: 'lg',
       })
+      modalRef.componentInstance.exercise = exercise
     }
   }
 }

@@ -1,16 +1,27 @@
+.exercise-details-modal {
+  border: none;
+}
+
 .exercise-details-modal .modal-content {
-    background: linear-gradient(black 75%, #470bab);
-    opacity: 0.9;
+  background: #010101;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  border: none;
 }
 
 .exercise-details-modal .modal-header {
-    background: linear-gradient(black 75%, #470bab);
-    opacity: 0.9;
+  background: linear-gradient(to top, black 85%, #470bab);
+  border-radius: 0;
+  border: none;
+
 }
 
 .exercise-details-modal .modal-footer {
-    background: linear-gradient(black 75%, #470bab);
-    opacity: 0.9;
+  background: linear-gradient(black 85%, #470bab);
+  border-radius: 0;
+  border: none;
+
 }
 
 /*.exercise-details-modal {*/
@@ -56,6 +67,4 @@ button:focus {
 
 .button-wrapper {
   display: flex;
-}
-.exercise-details-list {
 }
