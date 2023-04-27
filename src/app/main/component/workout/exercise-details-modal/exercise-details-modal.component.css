@@ -1,5 +1,6 @@
 .exercise-details-modal {
   border: none;
+  color: #f864b4;
 }
 
 .exercise-details-modal .modal-content {
@@ -14,25 +15,15 @@
   background: linear-gradient(to top, black 85%, #470bab);
   border-radius: 0;
   border: none;
-
 }
 
 .exercise-details-modal .modal-footer {
   background: linear-gradient(black 85%, #470bab);
   border-radius: 0;
   border: none;
-
+  display: flex;
+  justify-content: space-between;
 }
-
-/*.exercise-details-modal {*/
-/*  width: 900px;*/
-/*  height: 900px;*/
-/*  background: linear-gradient(black 75%, #470bab);*/
-/*  opacity: 0.9;*/
-/*  border: 1px solid #7d3eea;*/
-/*  display: flex;*/
-/*  position: fixed;*/
-/*}*/
 
 .neon-button button {
   text-decoration: inherit;
@@ -48,14 +39,12 @@
   border-color: #6b5194;
   border-radius: 0;
 }
-
 .neon-button button:hover,
 button:focus {
   background: none;
   text-decoration: inherit;
   font-family: system-ui;
   font-size: 1rem;
-  /*border: 5px solid*/
   border-image-slice: 1;
   border-width: 1px;
   border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
@@ -63,8 +52,4 @@ button:focus {
   background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.button-wrapper {
-  display: flex;
 }

@@ -1,21 +1,17 @@
-<div class='exercise-details-modal'>
-  <div class='modal-header'>{{exercise?.name | uppercase}}</div>
-  <div class='modal-content'>
-    <div>{{exercise?.description}}</div>
-    <div>{{exercise?.imgUrl}}</div>
-    <div>{{exercise?.videoUrl}}</div>
-    <div>{{exercise?.reps}}</div>
-    <div>{{exercise?.series}}</div>
+<div class="exercise-details-modal">
+  <div class="modal-header">{{ exercise?.name | uppercase }}</div>
+  <div class="modal-content">
+    <div>{{ exercise?.description }}</div>
+    <div>{{ exercise?.img_url }}</div>
+    <div>{{ exercise?.video_url }}</div>
+    <div>{{ exercise?.reps }}</div>
+    <div>{{ exercise?.series }}</div>
   </div>
   <div class='modal-footer'>
     <div class='button-wrapper'>
           <div class='neon-button'>
             <button (click)="modal.dismiss('Cancel')">Close</button>
           </div>
-          <div class='neon-button'>
-            <button (click)="modal.close('Save')">Save</button>
-          </div>
         </div>
   </div>
 </div>
-

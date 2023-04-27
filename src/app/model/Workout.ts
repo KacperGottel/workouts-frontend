@@ -18,12 +18,12 @@ export class Exercise {
   @JsonProperty('description', String, true)
   public description: string | undefined
   @JsonProperty('video_url', String, true)
-  public videoUrl: string | undefined
+  public video_url: string | undefined
   @JsonProperty('img_url', String, true)
-  public imgUrl: string | undefined
-  @JsonProperty("series", String, true)
+  public img_url: string | undefined
+  @JsonProperty('series', String, true)
   public series: string | undefined
-  @JsonProperty("reps", String, true)
+  @JsonProperty('reps', String, true)
   public reps: string | undefined
 }
 

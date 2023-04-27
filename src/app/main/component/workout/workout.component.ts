@@ -26,7 +26,6 @@ export class WorkoutComponent implements OnInit {
     this.authService.login('kacper@test.pl', 'W^7HH345GhloL0i^').subscribe()
     this.workoutService.getWorkout().subscribe((workout) => {
       this.workout = workout
-      console.log(this.workout)
     })
   }
 
