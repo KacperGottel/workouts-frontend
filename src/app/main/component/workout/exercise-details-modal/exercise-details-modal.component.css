@@ -22,7 +22,7 @@
   border-radius: 0;
   border: none;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .neon-button button {

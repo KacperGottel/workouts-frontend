@@ -7,11 +7,9 @@
     <div>{{ exercise?.reps }}</div>
     <div>{{ exercise?.series }}</div>
   </div>
-  <div class='modal-footer'>
-    <div class='button-wrapper'>
-          <div class='neon-button'>
-            <button (click)="modal.dismiss('Cancel')">Close</button>
-          </div>
-        </div>
+  <div class="modal-footer">
+    <div class="neon-button">
+      <button (click)="modal.close('Cancel')" [disabled]='isActive' aria-label="Close">Close</button>
+    </div>
   </div>
 </div>
