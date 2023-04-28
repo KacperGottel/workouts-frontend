@@ -1,5 +1,7 @@
 <div class="exercise-details-modal">
-  <div class="modal-header">{{ exercise?.name | uppercase }}</div>
+  <div class="modal-header">
+    <div class="name">[{{ exercise?.category }}] {{ exercise?.name }}</div>
+  </div>
   <div class="modal-content">
     <div>{{ exercise?.description }}</div>
     <div>{{ exercise?.img_url }}</div>
@@ -9,7 +11,13 @@
   </div>
   <div class="modal-footer">
     <div class="neon-button">
-      <button (click)="modal.close('Cancel')" [disabled]='isActive' aria-label="Close">Close</button>
+      <button
+        (click)="modal.close('Cancel')"
+        [disabled]="isActive"
+        aria-label="Close"
+      >
+        Close
+      </button>
     </div>
   </div>
 </div>

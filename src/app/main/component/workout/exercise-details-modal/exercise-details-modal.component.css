@@ -53,3 +53,8 @@ button:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.name {
+  color: rgba(154, 2, 121, 0.81);
+  text-shadow: 1px 1px 1px #743ad5;
+}
