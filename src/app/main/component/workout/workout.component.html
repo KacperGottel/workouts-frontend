@@ -6,37 +6,37 @@
 </div>
 <div class="workout" *ngIf="workout">
   <div class="workout-list">
-    <div class="exercise" (click)='showExerciseDetails(workout.pull)'>
+    <div class="exercise" (click)="showExerciseDetails(workout.pull)">
       <div class="name">
         [{{ workout.pull?.category }}] {{ workout.pull?.name }}
       </div>
-      <div class="series">{{workout.pull?.series}}</div>
+      <div class="series">{{ workout.pull?.series }}</div>
       <div class="x">x</div>
-      <div class="reps">{{workout.pull?.reps}}</div>
+      <div class="reps">{{ workout.pull?.reps }}</div>
     </div>
-    <div class="exercise" (click)='showExerciseDetails(workout.push)'>
+    <div class="exercise" (click)="showExerciseDetails(workout.push)">
       <div class="name">
         [{{ workout.push?.category }}] {{ workout.push?.name }}
       </div>
-      <div class="series">{{workout.push?.series}}</div>
+      <div class="series">{{ workout.push?.series }}</div>
       <div class="x">x</div>
-      <div class="reps">{{workout.push?.reps}}</div>
+      <div class="reps">{{ workout.push?.reps }}</div>
     </div>
-    <div class="exercise" (click)='showExerciseDetails(workout.legs)'>
+    <div class="exercise" (click)="showExerciseDetails(workout.legs)">
       <div class="name">
         [{{ workout.legs?.category }}] {{ workout.legs?.name }}
       </div>
-      <div class="series">{{workout.legs?.series}}</div>
+      <div class="series">{{ workout.legs?.series }}</div>
       <div class="x">x</div>
-      <div class="reps">{{workout.legs?.reps}}</div>
+      <div class="reps">{{ workout.legs?.reps }}</div>
     </div>
-    <div class="exercise" (click)='showExerciseDetails(workout.accessory)'>
+    <div class="exercise" (click)="showExerciseDetails(workout.accessory)">
       <div class="name">
         [{{ workout.accessory?.category }}] {{ workout.accessory?.name }}
       </div>
-      <div class="series">{{workout.accessory?.series}}</div>
+      <div class="series">{{ workout.accessory?.series }}</div>
       <div class="x">x</div>
-      <div class="reps">{{workout.accessory?.reps}}</div>
+      <div class="reps">{{ workout.accessory?.reps }}</div>
     </div>
   </div>
 </div>

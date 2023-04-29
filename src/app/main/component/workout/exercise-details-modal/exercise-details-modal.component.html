@@ -1,23 +1,37 @@
-<div class="exercise-details-modal">
-  <div class="modal-header">
-    <div class="name">[{{ exercise?.category }}] {{ exercise?.name }}</div>
-  </div>
-  <div class="modal-content">
-    <div>{{ exercise?.description }}</div>
-    <div>{{ exercise?.img_url }}</div>
-    <div>{{ exercise?.video_url }}</div>
-    <div>{{ exercise?.reps }}</div>
-    <div>{{ exercise?.series }}</div>
-  </div>
-  <div class="modal-footer">
-    <div class="neon-button">
-      <button
-        (click)="modal.close('Cancel')"
-        [disabled]="isActive"
-        aria-label="Close"
-      >
-        Close
-      </button>
+<div style="border: 1px solid blueviolet">
+  <div class="exercise-details-modal">
+    <div class="modal-header">
+      <div class="name">[{{ exercise?.category }}] {{ exercise?.name }}</div>
+    </div>
+    <div class="modal-content">
+      <div class="description">{{ exercise?.description }}</div>
+      <div class="exercise-image">
+        <img [src]="exercise?.img_url" alt="{{ exercise?.name }}" fill />
+      </div>
+      <div class="youtube-player">
+        <iframe
+          width="560"
+          height="315"
+          src="
+            'https://www.youtube.com/watch?v=AiGKBNGlzHo' | youtubeEmbedded
+          "
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        >
+        </iframe>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="neon-button">
+        <button
+          (click)="modal.close('Cancel')"
+          [disabled]="isActive"
+          aria-label="Close"
+        >
+          Close
+        </button>
+      </div>
     </div>
   </div>
 </div>

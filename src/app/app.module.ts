@@ -11,6 +11,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { TokenInterceptor } from './auth/token.interceptor'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { ExerciseDetailsModalComponent } from './main/component/workout/exercise-details-modal/exercise-details-modal.component'
+import { NgOptimizedImage } from '@angular/common';
+import { YoutubeEmbeddedPipe } from './utils/youtube-embedded.pipe'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/spinner', pathMatch: 'full' },
@@ -33,12 +35,14 @@ const routes: Routes = [
     SpinnerComponent,
     WorkoutComponent,
     ExerciseDetailsModalComponent,
+    YoutubeEmbeddedPipe,
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     NgbModule,
+    NgOptimizedImage,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
