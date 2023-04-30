@@ -8,18 +8,18 @@
       <div class="exercise-image">
         <img [src]="exercise?.img_url" alt="{{ exercise?.name }}" fill />
       </div>
-      <div class="youtube-player">
-        <iframe
-          width="560"
-          height="315"
-          src="
-            'https://www.youtube.com/watch?v=AiGKBNGlzHo' | youtubeEmbedded
-          "
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        >
-        </iframe>
+      <div class="youtube-player" *ngIf="exercise?.video_url">
+        <div>
+          <iframe
+            width="660"
+            height="415"
+            [src]="exercise?.video_url | youtubeEmbedded"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
       </div>
     </div>
     <div class="modal-footer">
