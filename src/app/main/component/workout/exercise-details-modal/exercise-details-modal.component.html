@@ -4,22 +4,12 @@
       <div class="name">[{{ exercise?.category }}] {{ exercise?.name }}</div>
     </div>
     <div class="modal-content">
-      <div class="description">{{ exercise?.description }}</div>
       <div class="exercise-image">
-        <img [src]="exercise?.img_url" alt="{{ exercise?.name }}" fill />
+        <img src="{{ exercise?.img_url }}" alt="{{ exercise?.name }}" fill />
       </div>
+      <div class="description">{{ exercise?.description }}</div>
       <div class="youtube-player" *ngIf="exercise?.video_url">
-        <div>
-          <iframe
-            width="660"
-            height="415"
-            [src]="exercise?.video_url | youtubeEmbedded"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          >
-          </iframe>
-        </div>
+        <app-youtube [url]="exercise?.video_url"></app-youtube>
       </div>
     </div>
     <div class="modal-footer">

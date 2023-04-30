@@ -32,7 +32,7 @@
   justify-content: flex-end;
 }
 
-.neon-button button {
+.neon-button button{
   text-decoration: inherit;
   font-family: system-ui;
   font-size: 1rem;
@@ -45,6 +45,7 @@
   border-width: 1px;
   border-color: #6b5194;
   border-radius: 0;
+  margin: 10px;
 }
 .neon-button button:hover,
 button:focus {
@@ -72,7 +73,7 @@ button:focus {
 
 .description {
   padding: 10px;
-  margin: 10px;
+  margin: 20px;
   color: rgba(154, 2, 121, 0.92);
   text-shadow: 1px 1px 1px #743ad5;
   text-decoration: #010101;
@@ -84,11 +85,13 @@ button:focus {
 }
 
 .exercise-image img{
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  padding: 20px;
+  background-color: black;
 }
 
 .youtube-player {
-  width: 660px;
-  height: 415px;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
