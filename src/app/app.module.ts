@@ -14,7 +14,8 @@ import { ExerciseDetailsModalComponent } from './main/component/workout/exercise
 import { NgOptimizedImage } from '@angular/common'
 import { YoutubeEmbeddedPipe } from './utils/youtube/youtube-embedded.pipe'
 import { YoutubeComponent } from './utils/youtube/youtube.component'
-import { SafePipe } from './utils/safe.pipe'
+import { SafePipe } from './utils/safe.pipe';
+import { LoginComponent } from './main/component/login/login/login.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/spinner', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
     children: [
       { path: 'spinner', component: SpinnerComponent },
       { path: 'workout', component: WorkoutComponent },
+      { path: 'login', component: LoginComponent },
     ],
   },
 ]
@@ -40,6 +42,7 @@ const routes: Routes = [
     YoutubeEmbeddedPipe,
     YoutubeComponent,
     SafePipe,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

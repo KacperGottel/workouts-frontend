@@ -14,4 +14,11 @@ export class HeaderComponent {
     this.router.navigate(['home', 'spinner'])
     this.sharedService.isSpinnerEnabledEmitter.emit(true)
   }
+
+  goAdd() {}
+
+  goLogin() {
+    this.router.navigate(['home', 'login'])
+    this.sharedService.isSpinnerEnabledEmitter.emit(false)
+  }
 }
