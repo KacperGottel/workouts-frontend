@@ -1,7 +1,27 @@
-<div class="">
-  <div>
-    CONTENT
+<div style="border: 1px solid blueviolet">
+  <div class="exercise-details-modal">
+    <div class="modal-header">
+      <div class="name">[{{ exercise?.category }}] {{ exercise?.name }}</div>
+    </div>
+    <div class="modal-content">
+      <div class="exercise-image">
+        <img src="{{ exercise?.img_url }}" alt="{{ exercise?.name }}" fill />
+      </div>
+      <div class="description">{{ exercise?.description }}</div>
+      <div class="youtube-player" *ngIf="exercise?.video_url">
+        <app-youtube [url]="exercise?.video_url"></app-youtube>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="neon-button">
+        <button
+          (click)="modal.close('Cancel')"
+          [disabled]="isActive"
+          aria-label="Close"
+        >
+          Close
+        </button>
+      </div>
+    </div>
   </div>
-  <button type="button" class="neon-button" (click)="modal.dismiss('Cancel')">Close</button>
-  <button type="button" class="neon-button" (click)="modal.close('Save')">Save changes</button>
 </div>
