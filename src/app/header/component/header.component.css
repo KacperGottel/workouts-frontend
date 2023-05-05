@@ -27,8 +27,7 @@
   border-radius: 0;
 }
 
-.neon-button button:hover,
-button:focus {
+.neon-button button:hover {
   background: none;
   text-decoration: inherit;
   font-family: system-ui;
@@ -38,6 +37,19 @@ button:focus {
   border-width: 1px;
   border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
   color: rgba(252, 119, 222, 0.81);
+  background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.neon-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: rgba(252, 119, 222, 0.81);
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
   background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
