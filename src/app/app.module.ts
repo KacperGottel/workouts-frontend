@@ -14,8 +14,9 @@ import { ExerciseDetailsModalComponent } from './main/component/workout/exercise
 import { NgOptimizedImage } from '@angular/common'
 import { YoutubeEmbeddedPipe } from './utils/youtube/youtube-embedded.pipe'
 import { YoutubeComponent } from './utils/youtube/youtube.component'
-import { SafePipe } from './utils/safe.pipe';
+import { SafePipe } from './utils/safe.pipe'
 import { LoginComponent } from './main/component/login/login/login.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/spinner', pathMatch: 'full' },
@@ -50,6 +51,8 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     NgOptimizedImage,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
