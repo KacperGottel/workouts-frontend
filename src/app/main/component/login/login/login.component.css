@@ -1,0 +1,146 @@
+.login-card {
+  background-color: #010101;
+  border: 1px solid darkviolet;
+  width: 400px;
+  height: 600px;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-content: center;
+  padding: 20px;
+}
+
+.login-content {
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  flex-direction: column;
+}
+
+.login-title {
+  color: darkviolet;
+  text-shadow: 1px 1px 1px #743ad5;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 2.4rem;
+}
+
+.login-email {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 50px rgb(32, 13, 63) inset; /* Change the color to your own background color */
+  -webkit-text-fill-color: #e85fb7;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px rgb(32, 13, 63) inset;/*your box-shadow*/
+  -webkit-text-fill-color: #e85fb7;
+}
+
+.login-email input[type=email]  {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
+}
+
+.login-password {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.login-password input[type=password]  {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
+}
+
+.login-remember-me {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.login-remember-me input[type=checkbox]  {
+  width: 10%;
+  border: 1px solid #e27df8;
+  background-color: rgb(54, 22, 107);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 8px 0;
+}
+
+.login-button {
+  display: flex;
+  justify-content: center;
+}
+
+.neon-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #6b5194;
+  width: 125px;
+  padding: 10px;
+  background: #6b5194 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #6b5194;
+  border-radius: 0;
+}
+
+.neon-button button:hover {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: rgba(252, 119, 222, 0.81);
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: rgba(252, 119, 222, 0.81);
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

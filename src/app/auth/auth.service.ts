@@ -13,17 +13,19 @@ interface Token {
 })
 export class AuthService {
   private tokenKey = 'workouts-token'
+  private isUserLoggedIn: boolean = false
 
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: `Basic ${btoa(`${username}:${password}`)}`,
+      Authorization: `Basic ${window.btoa(username + ':' + password)}`,
     })
     return this.http.post<Token>(token, {}, { headers }).pipe(
       tap((res) => {
         localStorage.setItem(this.tokenKey, res.token.toString())
+        this.isUserLoggedIn = true
       })
     )
   }
@@ -35,5 +37,13 @@ export class AuthService {
   addTokenHeader(headers: HttpHeaders): HttpHeaders {
     const token = this.getToken()
     return headers.append('Authorization', `Bearer ${token}`)
+  }
+
+  logout(): void {
+    this.isUserLoggedIn = false
+  }
+
+  isLoggedIn(): boolean {
+    return this.isUserLoggedIn
   }
 }
