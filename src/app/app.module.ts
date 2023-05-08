@@ -17,16 +17,20 @@ import { YoutubeComponent } from './utils/youtube/youtube.component'
 import { SafePipe } from './utils/safe.pipe'
 import { LoginComponent } from './main/component/login/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { AuthGuard } from './auth/auth.guard'
 
 const routes: Routes = [
   { path: '', redirectTo: '/home/spinner', pathMatch: 'full' },
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [],
     children: [
       { path: 'spinner', component: SpinnerComponent },
-      { path: 'workout', component: WorkoutComponent },
+      {
+        path: 'workout',
+        component: WorkoutComponent,
+        canActivate: [() => AuthGuard],
+      },
       { path: 'login', component: LoginComponent },
     ],
   },

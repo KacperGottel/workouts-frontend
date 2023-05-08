@@ -28,9 +28,6 @@ export class LoginComponent {
     const password = this.loginForm.get('password')?.value
     this.authService.login(email, password).subscribe(() => {
       this.router.navigate(['home', 'spinner'])
-      // this.sharedService.isSpinnerEnabledEmitter.emit(true)
     })
-
-    // this.authService.login('kacper@test.pl', 'W^7HH345GhloL0i^').subscribe()
   }
 }
