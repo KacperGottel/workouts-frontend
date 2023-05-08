@@ -30,7 +30,7 @@ export class AuthService {
     )
   }
 
-  getToken(): string | null {
+  getToken(): string | null | undefined {
     return localStorage.getItem(this.tokenKey)
   }
 
@@ -40,10 +40,14 @@ export class AuthService {
   }
 
   logout(): void {
+    localStorage.removeItem(this.tokenKey)
     this.isUserLoggedIn = false
   }
 
   isLoggedIn(): boolean {
+    if (!this.getToken()) {
+      return false
+    }
     return this.isUserLoggedIn
   }
 }
