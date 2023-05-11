@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
-import { Observable } from 'rxjs'
+import { Observable, Subject } from 'rxjs'
 import { token } from '../model/Api'
+import { SharedService } from '../shared.service'
+import { Router } from '@angular/router'
 
 interface Token {
   token: string
@@ -13,9 +15,18 @@ interface Token {
 })
 export class AuthService {
   private tokenKey = 'workouts-token'
-  private isUserLoggedIn: boolean = false
+  private isUserLoggedIn = false
+  public isLoggedSubject = new Subject<boolean>()
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private sharedService: SharedService,
+    private router: Router
+  ) {
+    this.isLoggedSubject.subscribe((isLogged) => {
+      this.isUserLoggedIn = isLogged
+    })
+  }
 
   login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
@@ -24,8 +35,10 @@ export class AuthService {
     })
     return this.http.post<Token>(token, {}, { headers }).pipe(
       tap((res) => {
+        localStorage.removeItem(this.tokenKey)
         localStorage.setItem(this.tokenKey, res.token.toString())
         this.isUserLoggedIn = true
+        this.isLoggedSubject.next(true)
       })
     )
   }
@@ -40,14 +53,19 @@ export class AuthService {
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey)
     this.isUserLoggedIn = false
+    this.isLoggedSubject.next(false)
+    localStorage.removeItem(this.tokenKey)
+    this.router.navigate(['home', 'login'])
+    this.sharedService.isSpinnerEnabledEmitter.emit(false)
   }
 
   isLoggedIn(): boolean {
-    if (!this.getToken()) {
-      return false
-    }
-    return this.isUserLoggedIn
+    return (
+      this.isUserLoggedIn &&
+      this.getToken() != undefined &&
+      this.getToken() != null &&
+      this.getToken() != ''
+    )
   }
 }

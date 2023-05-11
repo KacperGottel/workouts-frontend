@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { SharedService } from '../../shared.service'
 import { Router } from '@angular/router'
 import { AuthService } from '../../auth/auth.service'
@@ -8,17 +8,20 @@ import { AuthService } from '../../auth/auth.service'
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {
-  loginButtonName: string = ''
+export class HeaderComponent implements OnInit {
+  loginButtonName: string = 'SIGN IN'
+  private isUserLogged = false
 
   constructor(
     private sharedService: SharedService,
     private router: Router,
     private authService: AuthService
-  ) {
-    this.loginButtonName = this.authService.isLoggedIn()
-      ? 'SIGN OUT'
-      : 'SIGN IN'
+  ) {}
+  ngOnInit(): void {
+    this.authService.isLoggedSubject.subscribe((isLogged) => {
+      this.isUserLogged = isLogged
+      this.loginButtonName = isLogged ? 'SIGN OUT' : 'SIGN IN'
+    })
   }
 
   goHome() {
@@ -29,11 +32,9 @@ export class HeaderComponent {
   goAdd() {}
 
   goLogin() {
-    if (!this.authService.isLoggedIn() && this.loginButtonName === 'SIGN OUT') {
+    if (this.isUserLogged) {
       this.authService.logout()
       this.loginButtonName = 'SIGN IN'
-      this.router.navigate(['home', 'login'])
-      this.sharedService.isSpinnerEnabledEmitter.emit(false)
     }
     this.router.navigate(['home', 'login'])
     this.sharedService.isSpinnerEnabledEmitter.emit(false)

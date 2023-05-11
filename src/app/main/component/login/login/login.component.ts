@@ -23,6 +23,10 @@ export class LoginComponent {
     })
   }
 
+  onCancel() {
+    this.router.navigate(['home', 'spinner'])
+  }
+
   onSubmit() {
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value
