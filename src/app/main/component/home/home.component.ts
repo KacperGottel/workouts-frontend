@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { SharedService } from '../../../shared.service'
 import { Router } from '@angular/router'
+import { RouteNames } from '../../../model/RouteNames'
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.isSpinnerActive) {
-      this.router.navigate(['home', 'spinner'])
+      this.router.navigate([RouteNames.Home, RouteNames.Spinner])
     }
     this.sharedService.isSpinnerEnabledEmitter.subscribe(
       (val) => (this.isSpinnerActive = val)

@@ -2,6 +2,7 @@ import { Component } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../../../../auth/auth.service'
 import { Router } from '@angular/router'
+import { RouteNames } from '../../../../model/RouteNames'
 
 @Component({
   selector: 'app-login',
@@ -18,20 +19,21 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      password: ['', [Validators.required]],
       rememberMe: [false],
     })
   }
 
   onCancel() {
-    this.router.navigate(['home', 'spinner'])
+    this.router.navigate([RouteNames.Home, RouteNames.Spinner])
   }
 
   onSubmit() {
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value
+    const rememberMe = this.loginForm.get('rememberMe')?.value
     this.authService.login(email, password).subscribe(() => {
-      this.router.navigate(['home', 'spinner'])
+      this.router.navigate([RouteNames.Home, RouteNames.Spinner])
     })
   }
 }

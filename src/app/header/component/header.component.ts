@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { SharedService } from '../../shared.service'
 import { Router } from '@angular/router'
 import { AuthService } from '../../auth/auth.service'
+import { RouteNames } from '../../model/RouteNames'
 
 @Component({
   selector: 'app-header',
@@ -25,18 +26,19 @@ export class HeaderComponent implements OnInit {
   }
 
   goHome() {
-    this.router.navigate(['home', 'spinner'])
+    this.router.navigate([RouteNames.Home, RouteNames.Spinner])
     this.sharedService.isSpinnerEnabledEmitter.emit(true)
   }
 
   goAdd() {}
 
-  goLogin() {
+  handleLogging() {
     if (this.isUserLogged) {
-      this.authService.logout()
-      this.loginButtonName = 'SIGN IN'
+      this.authService.logout().subscribe(() => {
+        this.loginButtonName = 'SIGN IN'
+      })
     }
-    this.router.navigate(['home', 'login'])
+    this.router.navigate([RouteNames.Home, RouteNames.Login])
     this.sharedService.isSpinnerEnabledEmitter.emit(false)
   }
 }

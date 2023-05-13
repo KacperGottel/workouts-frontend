@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { tap } from 'rxjs/operators'
-import { Observable, Subject } from 'rxjs'
-import { token } from '../model/Api'
+import { catchError, tap } from 'rxjs/operators'
+import { Observable, Subject, throwError } from 'rxjs'
+import { logout, token } from '../model/Api'
 import { SharedService } from '../shared.service'
 import { Router } from '@angular/router'
+import { RouteNames } from '../model/RouteNames'
 
 interface Token {
   token: string
@@ -52,12 +53,19 @@ export class AuthService {
     return headers.append('Authorization', `Bearer ${token}`)
   }
 
-  logout(): void {
-    this.isUserLoggedIn = false
-    this.isLoggedSubject.next(false)
-    localStorage.removeItem(this.tokenKey)
-    this.router.navigate(['home', 'login'])
-    this.sharedService.isSpinnerEnabledEmitter.emit(false)
+  logout(): Observable<any> {
+    return this.http.post(logout, {}, {}).pipe(
+      tap(() => {
+        this.isLoggedSubject.next(false)
+        localStorage.removeItem(this.tokenKey)
+        this.router.navigate([RouteNames.Home, RouteNames.Login])
+        this.sharedService.isSpinnerEnabledEmitter.emit(false)
+      }),
+      catchError((error) => {
+        console.error('Logout error:', error)
+        return throwError(error)
+      })
+    )
   }
 
   isLoggedIn(): boolean {

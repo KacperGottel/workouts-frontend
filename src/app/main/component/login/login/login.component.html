@@ -1,18 +1,18 @@
 <div class='login-card'>
   <div class='login-content'>
     <div class='login-title'>SIGN IN</div>
-    <form [formGroup]='loginForm' (ngSubmit)='onSubmit()'>
+    <form [formGroup]='loginForm' (ngSubmit)='onSubmit()' *ngIf="loginForm">
       <div class='inputs'>
         <div class='login-email'>
           <label for='email'>Email</label>
-          <input formControlName="email" required type='email' id='email' />
+          <input formControlName="email"  type='email' id='email' />
         </div>
         <div class='login-password'>
           <label for='password'>Password</label>
-          <input formControlName="password" required type='password' id='password' />
+          <input formControlName="password"  type='password' id='password' />
         </div>
         <div class='login-remember-me'>
-          <input formControlName="remember" type='checkbox' id='remember' />
+          <input formControlName="rememberMe" type='checkbox' id='remember' />
           <label class='remember-label' for='remember'>Remember me</label>
         </div>
       </div>

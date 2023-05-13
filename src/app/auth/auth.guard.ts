@@ -7,6 +7,7 @@ import {
 } from '@angular/router'
 import { Observable } from 'rxjs'
 import { AuthService } from './auth.service'
+import { RouteNames } from '../model/RouteNames'
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isLoggedIn()) {
       return true
     }
-    this.router.navigate(['home', 'login'])
+    this.router.navigate([RouteNames.Home, RouteNames.Login])
     return false
   }
 }
