@@ -11,7 +11,7 @@ import { RouteNames } from '../../../../model/RouteNames'
 })
 export class LoginComponent {
   loginForm: FormGroup
-
+  registerRoute: string = '/' + RouteNames.Home + '/' + RouteNames.Register
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
@@ -23,11 +23,9 @@ export class LoginComponent {
       rememberMe: [false],
     })
   }
-
   onCancel() {
     this.router.navigate([RouteNames.Home, RouteNames.Spinner])
   }
-
   onSubmit() {
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value

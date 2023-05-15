@@ -18,7 +18,8 @@ import { SafePipe } from './utils/safe.pipe'
 import { LoginComponent } from './main/component/login/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AuthGuard } from './auth/auth.guard'
-import { RouteNames } from './model/RouteNames'
+import { RouteNames } from './model/RouteNames';
+import { RegisterComponent } from './main/component/register/register/register.component'
 
 const routes: Routes = [
   {
@@ -37,6 +38,7 @@ const routes: Routes = [
         canActivate: [AuthGuard],
       },
       { path: RouteNames.Login, component: LoginComponent },
+      { path: RouteNames.Register, component: RegisterComponent },
     ],
   },
 ]
@@ -53,6 +55,7 @@ const routes: Routes = [
     YoutubeComponent,
     SafePipe,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

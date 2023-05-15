@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { catchError, tap } from 'rxjs/operators'
 import { Observable, Subject, throwError } from 'rxjs'
-import { logout, token } from '../model/Api'
+import { logout, register, token } from '../model/Api'
 import { SharedService } from '../shared.service'
 import { Router } from '@angular/router'
 import { RouteNames } from '../model/RouteNames'
@@ -74,6 +74,24 @@ export class AuthService {
       this.getToken() != undefined &&
       this.getToken() != null &&
       this.getToken() != ''
+    )
+  }
+
+  register(email: any, password: any, username: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    })
+    const registerData = {
+      username: username,
+      email: email,
+      password: password,
+    }
+    return this.http.post(register, { registerData }, { headers }).pipe(
+      tap(() => {}),
+      catchError((error) => {
+        console.error('Register error:', error)
+        return throwError(error)
+      })
     )
   }
 }

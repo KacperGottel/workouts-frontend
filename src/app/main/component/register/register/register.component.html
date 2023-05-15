@@ -1,0 +1,37 @@
+<div class='register-card'>
+  <div class='login-content'>
+    <div class='login-title'>SIGN UP</div>
+    <div class='register-paragraph'>
+      <p>Register your account to have full access to platform and add your own exercises!</p>
+    </div>
+    <form [formGroup]='registerForm' (ngSubmit)='onSubmit()' *ngIf='registerForm'>
+      <div class='inputs'>
+        <div class='username'>
+          <label for='username'>Username</label>
+          <input formControlName='username' type='text' id='username' required />
+        </div>
+        <div class='login-email'>
+          <label for='email'>Email</label>
+          <input formControlName='email' type='email' id='email' required email />
+        </div>
+        <div class='login-password'>
+          <label for='password'>Password</label>
+          <input formControlName='password' type='password' id='password' required />
+        </div>
+        <div class='login-password'>
+          <label for='repeat-password'>Repeat password</label>
+          <input formControlName='repeat-password' required type='password' id='repeat-password'
+                 [ngbTooltip]="'Passwords are not identical'" [placement]="'bottom'"
+                 [disabled]='!arePasswordsIdentical && registerForm.touched' />
+        </div>
+      </div>
+      <div class='register-button'>
+        <div class='neon-button'>
+          <button type='button' (click)='onCancel()'>Cancel</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type='submit'>Sign Up!</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
