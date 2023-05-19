@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { catchError, tap } from 'rxjs/operators'
-import { Observable, Subject, throwError } from 'rxjs'
+import { tap } from 'rxjs/operators'
+import { Observable, Subject } from 'rxjs'
 import { logout, register, token } from '../model/Api'
 import { SharedService } from '../shared.service'
 import { Router } from '@angular/router'
@@ -60,10 +60,6 @@ export class AuthService {
         localStorage.removeItem(this.tokenKey)
         this.router.navigate([RouteNames.Home, RouteNames.Login])
         this.sharedService.isSpinnerEnabledEmitter.emit(false)
-      }),
-      catchError((error) => {
-        console.error('Logout error:', error)
-        return throwError(error)
       })
     )
   }
@@ -77,7 +73,7 @@ export class AuthService {
     )
   }
 
-  register(email: any, password: any, username: any): Observable<any> {
+  register(email: string, password: string, username: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
     })
@@ -86,12 +82,8 @@ export class AuthService {
       email: email,
       password: password,
     }
-    return this.http.post(register, { registerData }, { headers }).pipe(
-      tap(() => {}),
-      catchError((error) => {
-        console.error('Register error:', error)
-        return throwError(error)
-      })
-    )
+    return this.http
+      .post(register, { registerData }, { headers })
+      .pipe(tap(() => {}))
   }
 }

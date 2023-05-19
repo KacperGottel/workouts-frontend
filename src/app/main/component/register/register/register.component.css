@@ -35,3 +35,13 @@
   justify-content: center;
   margin-top: 25px;
 }
+
+.ng-invalid .ng-touched{
+  border: 1px solid red;
+}
+
+button:disabled {
+  opacity: 0.4;
+}
+
+
