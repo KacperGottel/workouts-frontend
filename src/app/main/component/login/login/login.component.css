@@ -145,6 +145,10 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: transparent;
 }
 
+button:disabled{
+  opacity: 0.5;
+}
+
 .register-paragraph p{
   font-family: system-ui;
   font-size: 1rem;
