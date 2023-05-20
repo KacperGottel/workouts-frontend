@@ -73,5 +73,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
         this.router.navigate([RouteNames.Home, RouteNames.Spinner])
       })
     }
+    this.registerForm.reset()
   }
 }
