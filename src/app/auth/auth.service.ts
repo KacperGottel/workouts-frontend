@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { Observable, Subject } from 'rxjs'
-import { logout, register, token } from '../model/Api'
+import { logout, registerUser, token } from '../model/Api'
 import { SharedService } from '../shared.service'
 import { Router } from '@angular/router'
 import { RouteNames } from '../model/RouteNames'
@@ -83,7 +83,7 @@ export class AuthService {
       password: password,
     }
     return this.http
-      .post(register, { registerData }, { headers })
+      .post(registerUser, { registerData }, { headers })
       .pipe(tap(() => {}))
   }
 }

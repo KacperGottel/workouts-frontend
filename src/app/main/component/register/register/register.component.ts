@@ -15,7 +15,7 @@ import { Router } from '@angular/router'
 export class RegisterComponent implements OnInit, OnDestroy {
   registerForm: FormGroup
   arePasswordsIdentical: boolean = false
-  passwordPattern = '^[\\d]{8,16}$'
+  passwordPattern = '^(?=.*[\\w\\W]).{8,16}$'
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
