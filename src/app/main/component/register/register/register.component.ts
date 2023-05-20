@@ -35,11 +35,24 @@ export class RegisterComponent implements OnInit, OnDestroy {
     })
   }
 
+  private addPasswordNotLikeEmailValidator() {
+    return this.registerForm
+      .get('password')
+      ?.addValidators((control: { value: any }) => {
+        const email = this.registerForm.get('email')?.value
+        const password = control.value
+        return email && password && email === password
+          ? { passwordNotLikeEmail: true }
+          : null
+      })
+  }
+
   ngOnDestroy(): void {
     this.registerForm.reset()
   }
 
   ngOnInit(): void {
+    this.addPasswordNotLikeEmailValidator()
     this.registerForm
       .get('repeatPassword')
       ?.valueChanges.subscribe((repeatPassword) => {

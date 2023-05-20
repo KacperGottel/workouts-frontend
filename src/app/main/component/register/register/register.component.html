@@ -22,7 +22,7 @@
           <label for='password'>Password</label>
           <input formControlName='password' type='password' id='password' required
                  [disableTooltip]="!registerForm.get('password')?.invalid"
-                 [ngbTooltip]="'Passwords must have 8-16 signs'" [placement]="'top'" />
+                 [ngbTooltip]="'Passwords must have 8-16 signs,\n can not be same like email '" [placement]="'top'" />
         </div>
         <div class='login-password'>
           <label for='repeat-password'>Repeat password</label>

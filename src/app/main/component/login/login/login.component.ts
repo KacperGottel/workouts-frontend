@@ -20,7 +20,6 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
-      rememberMe: [false],
     })
   }
   onCancel() {
@@ -29,7 +28,6 @@ export class LoginComponent {
   onSubmit() {
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value
-    const rememberMe = this.loginForm.get('rememberMe')?.value
     this.authService.login(email, password).subscribe(() => {
       this.router.navigate([RouteNames.Home, RouteNames.Spinner])
     })
