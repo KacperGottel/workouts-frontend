@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http'
+import { HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http'
 import { AuthService } from './auth.service'
 
 @Injectable({
@@ -12,7 +12,10 @@ export class TokenInterceptor implements HttpInterceptor {
     const token = this.authService.getToken()
     if (token && !req.url.includes('/token')) {
       const authReq = req.clone({
-        setHeaders: { Authorization: `Bearer ${token}` },
+        withCredentials: true,
+        setHeaders: {
+          Authorization: `Bearer ${token}`,
+        },
       })
       return next.handle(authReq)
     }

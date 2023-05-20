@@ -18,20 +18,27 @@ import { SafePipe } from './utils/safe.pipe'
 import { LoginComponent } from './main/component/login/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AuthGuard } from './auth/auth.guard'
+import { RouteNames } from './model/RouteNames';
+import { RegisterComponent } from './main/component/register/register/register.component'
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home/spinner', pathMatch: 'full' },
   {
-    path: 'home',
+    path: '',
+    redirectTo: '/' + RouteNames.Home + '/' + RouteNames.Spinner,
+    pathMatch: 'full',
+  },
+  {
+    path: RouteNames.Home,
     component: HomeComponent,
     children: [
-      { path: 'spinner', component: SpinnerComponent },
+      { path: RouteNames.Spinner, component: SpinnerComponent },
       {
-        path: 'workout',
+        path: RouteNames.Workout,
         component: WorkoutComponent,
-        canActivate: [() => AuthGuard],
+        canActivate: [AuthGuard],
       },
-      { path: 'login', component: LoginComponent },
+      { path: RouteNames.Login, component: LoginComponent },
+      { path: RouteNames.Register, component: RegisterComponent },
     ],
   },
 ]
@@ -48,6 +55,7 @@ const routes: Routes = [
     YoutubeComponent,
     SafePipe,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

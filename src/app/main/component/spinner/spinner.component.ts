@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { Router } from '@angular/router'
 import { SharedService } from '../../../shared.service'
+import { RouteNames } from '../../../model/RouteNames'
 
 @Component({
   selector: 'app-spinner',
@@ -10,7 +11,7 @@ import { SharedService } from '../../../shared.service'
 export class SpinnerComponent {
   constructor(private sharedService: SharedService, private router: Router) {}
   clickDumbbell() {
-    this.router.navigate(['home', 'workout'])
+    this.router.navigate([RouteNames.Home, RouteNames.Workout])
     this.sharedService.isSpinnerEnabledEmitter.emit(false)
   }
 }
