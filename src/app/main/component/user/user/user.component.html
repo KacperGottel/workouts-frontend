@@ -1,0 +1,16 @@
+<div class="container">
+  <form class="form" [formGroup]="myForm">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" formControlName="username" placeholder="Enter your username" [disabled]='true'>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" formControlName="email" placeholder="Enter your email" [disabled]='true'>
+    </div>
+    <div class="form-group">
+      <label for="registeredOn">Registered On:</label>
+      <input type="text" id="registeredOn" formControlName="registeredOn" placeholder="Enter the registration date" [disabled]='true'>
+    </div>
+  </form>
+</div>
