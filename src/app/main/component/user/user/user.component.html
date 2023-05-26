@@ -1,16 +1,38 @@
 <div class="container">
-  <form class="form" [formGroup]="myForm">
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" formControlName="username" placeholder="Enter your username" [disabled]='true'>
+  <div class='user-form'>
+    <form class="form" [formGroup]="myForm">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" placeholder="Enter your username" [disabled]='true'>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email" [disabled]='true'>
+      </div>
+      <div class="form-group">
+        <label for="registeredOn">Registered On:</label>
+        <input type="text" id="registeredOn" formControlName="registeredOn" placeholder="Enter the registration date" [disabled]='true' >
+      </div>
+      <div class='form-group neon-button'>
+        <button type='submit'
+                [disabled]='true'>Save
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class='user-exercises-list'>
+    <div class='neon-button'>
+      <button class=''>Add New!</button>
     </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" formControlName="email" placeholder="Enter your email" [disabled]='true'>
+    <div class='list'>
+      <ul>
+        <li>XXXXXXXXXxx</li>
+        <li>XXXXXXXXXxx</li>
+        <li>XXXXXXXXXxx</li>
+      </ul>
     </div>
-    <div class="form-group">
-      <label for="registeredOn">Registered On:</label>
-      <input type="text" id="registeredOn" formControlName="registeredOn" placeholder="Enter the registration date" [disabled]='true'>
-    </div>
-  </form>
+  </div>
+  <div>
+
+  </div>
 </div>

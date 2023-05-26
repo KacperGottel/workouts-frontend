@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core'
+import { Injectable, OnInit } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { Observable, Subject } from 'rxjs'
@@ -14,7 +14,7 @@ interface Token {
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService implements OnInit {
   private tokenKey = 'workouts-token'
   private isUserLoggedIn = false
   public isLoggedSubject = new Subject<boolean>()
@@ -28,6 +28,8 @@ export class AuthService {
       this.isUserLoggedIn = isLogged
     })
   }
+
+  ngOnInit(): void {}
 
   login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({

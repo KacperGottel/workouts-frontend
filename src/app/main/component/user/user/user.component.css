@@ -1,11 +1,12 @@
 .container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   background-color: black;
   border: 1px solid #d30c8b;
-  height: 100%;
-  width: 100%;
+  width: 800px;
+  padding: 25px;
 }
 
 .form {
