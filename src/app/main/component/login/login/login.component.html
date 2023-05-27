@@ -9,13 +9,13 @@
       <div class='inputs'>
         <div class='login-email'>
           <label for='email'>Email</label>
-          <input formControlName='email' type='email' id='email'
+          <input formControlName='email' type='email' id='email' placeholder='Email'
                  [disableTooltip]="!loginForm.get('email')?.valid"
                  [ngbTooltip]="'Email is required'" [placement]="'top'" />
         </div>
         <div class='login-password'>
           <label for='password'>Password</label>
-          <input formControlName='password' type='password' id='password'
+          <input formControlName='password' type='password' id='password' placeholder='Password'
                  [disableTooltip]="!loginForm.get('password')?.valid"
                  [ngbTooltip]="'Passwords is required'" [placement]="'top'" />
         </div>

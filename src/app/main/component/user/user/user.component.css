@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
   align-items: center;
   background-color: black;
@@ -19,14 +19,81 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .form-group label {
-  color: white;
-  margin-bottom: 5px;
+  color: rgba(197, 94, 174, 0.81);
 }
 
 .form-group input {
   padding: 5px;
+}
+
+.username
+{
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.username input[type=text]
+{
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
+}
+
+.email {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.email input[type=email] {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
+}
+
+.registered {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.registered input[type=text] {
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
+}
+
+.update {
+  margin: 25px;
+  margin-right: 10px;
+  align-self: flex-end;
 }

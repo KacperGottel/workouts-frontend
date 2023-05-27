@@ -32,17 +32,17 @@ const routes: Routes = [
     path: RouteNames.Home,
     component: HomeComponent,
     children: [
-      { path: RouteNames.Spinner, component: SpinnerComponent },
-      {
-        path: RouteNames.Workout,
-        component: WorkoutComponent,
-        canActivate: [AuthGuard],
-      },
       { path: RouteNames.Login, component: LoginComponent },
       { path: RouteNames.Register, component: RegisterComponent },
       {
         path: RouteNames.User,
         component: UserComponent,
+        canActivate: [AuthGuard],
+      },
+      { path: RouteNames.Spinner, component: SpinnerComponent },
+      {
+        path: RouteNames.Workout,
+        component: WorkoutComponent,
         canActivate: [AuthGuard],
       },
     ],

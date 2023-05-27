@@ -32,6 +32,7 @@ export class HeaderComponent implements OnInit {
 
   onUserPanelClick() {
     this.router.navigate([RouteNames.Home, RouteNames.User])
+    this.sharedService.isSpinnerEnabledEmitter.emit(false)
   }
 
   onSignInOrOutClick() {
