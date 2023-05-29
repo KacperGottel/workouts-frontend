@@ -11,7 +11,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { TokenInterceptor } from './auth/token.interceptor'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { ExerciseDetailsModalComponent } from './main/component/workout/exercise-details-modal/exercise-details-modal.component'
-import { NgOptimizedImage } from '@angular/common'
+import { DatePipe, NgOptimizedImage } from '@angular/common'
 import { YoutubeEmbeddedPipe } from './utils/youtube/youtube-embedded.pipe'
 import { YoutubeComponent } from './utils/youtube/youtube.component'
 import { SafePipe } from './utils/safe.pipe'
@@ -75,6 +75,7 @@ const routes: Routes = [
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    DatePipe,
   ],
   bootstrap: [AppComponent],
 })
