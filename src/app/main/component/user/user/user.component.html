@@ -1,14 +1,18 @@
 <div class="container">
   <div class='user-form'>
     <div class='login-title'>INFO</div>
-    <form class="form" [formGroup]="userInfoForm">
+    <form class="form" [formGroup]="userInfoForm" (ngSubmit)='onSubmit()' *ngIf='userInfoForm'>
       <div class="form-group username">
         <label for="username">Username:</label>
-        <input type="text" id="username" formControlName="username" placeholder="Enter your username" >
+        <input type="text" id="username" formControlName="username" placeholder="Enter your username"
+               [disableTooltip]="!userInfoForm.get('username')?.invalid"
+               [ngbTooltip]="'Username is required'" [placement]="'top'">
       </div>
       <div class="form-group email">
         <label for="email">Email:</label>
-        <input type="email" id="email" formControlName="email" placeholder="Enter your email" >
+        <input type="email" id="email" formControlName="email" placeholder="Enter your email"
+               [disableTooltip]="!userInfoForm.get('email')?.invalid"
+               [ngbTooltip]="'Email is required'" [placement]="'top'">
       </div>
       <div class="form-group registered">
         <label for="registered">Registered On:</label>

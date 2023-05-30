@@ -55,4 +55,15 @@ export class UserComponent implements OnInit {
     this.userInfoForm.get('email')?.disable()
     this.userInfoForm.get('username')?.disable()
   }
+
+  onSubmit() {
+    if (this.userInfoForm.valid) {
+      const email = this.userInfoForm.get('email')?.value
+      const username = this.userInfoForm.get('username')?.value
+      this.userService.updateUser(email, username).subscribe(() => {
+        this.userInfoForm.reset()
+        this.ngOnInit()
+      })
+    }
+  }
 }

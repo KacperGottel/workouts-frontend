@@ -8,11 +8,13 @@ import { Observable } from 'rxjs'
   providedIn: 'root',
 })
 export class UserService {
-  // user: User = {}
-
   constructor(private http: HttpClient) {}
 
   getUser(): Observable<User> {
     return this.http.get<User>(user)
+  }
+
+  updateUser(email: string, username: string): Observable<any> {
+    return this.http.post(user, { email: email, username: username })
   }
 }
