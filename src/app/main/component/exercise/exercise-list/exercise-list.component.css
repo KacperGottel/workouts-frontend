@@ -1,0 +1,67 @@
+.user-list-container {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  margin: 15px;
+  padding: 10px;
+  height: 400px;
+}
+
+.neon-button{
+  align-self: flex-start;
+  justify-self: center;
+}
+
+.button-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.list-card{
+}
+
+.list{
+  padding: 5px;
+  margin: 20px;
+}
+
+.list-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 15px;
+}
+
+.exercise-category{
+  color: rgba(154, 2, 121, 0.81);
+  text-shadow: 1px 1px 1px #743ad5;
+  margin-right: 10px;
+  opacity: 0.8;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 1.4rem;
+  display: flex;
+  flex-flow: row;
+}
+
+.exercise-name {
+  opacity: 0.8;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 1.4rem;
+  display: flex;
+  flex-flow: row;
+  color: rgba(154, 2, 121, 0.81);
+  text-shadow: 1px 1px 1px #fa2d9c;
+}
+
+.exercise-name:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.not-added{
+  color: #9A0279CE;
+}

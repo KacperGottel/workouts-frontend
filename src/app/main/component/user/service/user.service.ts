@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { user } from '../../../../model/Api'
+import { HttpClient, HttpParams } from '@angular/common/http'
+import { user, userExercises } from '../../../../model/Api'
 import { User } from '../../../../model/User'
 import { Observable } from 'rxjs'
+import { Exercise } from '../../../../model/Workout'
+import { Page } from '../../../../model/Page'
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +14,19 @@ export class UserService {
 
   getUser(): Observable<User> {
     return this.http.get<User>(user)
+  }
+  getUserExercises(
+    page: number = 0,
+    size: number = 10,
+    sort: string = 'name, asc',
+    filter: string = ''
+  ): Observable<Page<Exercise>> {
+    let params = new HttpParams()
+      .set('page', page.toString())
+      .set('size', size.toString())
+      .set('sort', sort)
+      .set('filter', filter)
+    return this.http.get<Page<Exercise>>(userExercises, { params })
   }
 
   updateUser(email: string, username: string): Observable<any> {

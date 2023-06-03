@@ -1,0 +1,18 @@
+<div class='user-list-container'>
+  <div class='button-wrapper'>
+    <div class='neon-button'>
+      <button class=''>Add New!</button>
+    </div>
+  </div>
+  <div class='list'>
+    <div class='list-card' *ngIf='userExercises'>
+      <div class='list-item' *ngFor='let exercise of userExercises'>
+        <div class='exercise-category'>[{{exercise.category}}]</div>
+        <div class='exercise-name' (click)='showExerciseDetails(exercise)'>{{exercise.name}}</div>
+      </div>
+    </div>
+    <div class='list-card' *ngIf='!userExercises'>
+      <div class='not-added'>You have not added any exercise yet!</div>
+    </div>
+  </div>
+</div>

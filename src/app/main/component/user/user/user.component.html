@@ -1,43 +1,61 @@
-<div class="container">
+<div class='container'>
   <div class='user-form'>
     <div class='login-title'>INFO</div>
-    <form class="form" [formGroup]="userInfoForm" (ngSubmit)='onSubmit()' *ngIf='userInfoForm'>
-      <div class="form-group username">
-        <label for="username">Username:</label>
-        <input type="text" id="username" formControlName="username" placeholder="Enter your username"
-               [disableTooltip]="!userInfoForm.get('username')?.invalid"
-               [ngbTooltip]="'Username is required'" [placement]="'top'">
+    <form
+      class='form'
+      [formGroup]='userInfoForm'
+      (ngSubmit)='onSubmit()'
+      *ngIf='userInfoForm'
+    >
+      <div class='form-group username'>
+        <label for='username'>Username:</label>
+        <input
+          type='text'
+          id='username'
+          formControlName='username'
+          placeholder='Enter your username'
+          [disableTooltip]="!userInfoForm.get('username')?.invalid"
+          [ngbTooltip]="'Username is required'"
+          [placement]="'top'"
+        />
       </div>
-      <div class="form-group email">
-        <label for="email">Email:</label>
-        <input type="email" id="email" formControlName="email" placeholder="Enter your email"
-               [disableTooltip]="!userInfoForm.get('email')?.invalid"
-               [ngbTooltip]="'Email is required'" [placement]="'top'">
+      <div class='form-group email'>
+        <label for='email'>Email:</label>
+        <input
+          type='email'
+          id='email'
+          formControlName='email'
+          placeholder='Enter your email'
+          [disableTooltip]="!userInfoForm.get('email')?.invalid"
+          [ngbTooltip]="'Email is required'"
+          [placement]="'top'"
+        />
       </div>
-      <div class="form-group registered">
-        <label for="registered">Registered On:</label>
-        <input type="text" id="registered" formControlName="registered" placeholder="Date of registration" >
+      <div class='form-group registered'>
+        <label for='registered'>Registered On:</label>
+        <input
+          type='text'
+          id='registered'
+          formControlName='registered'
+          placeholder='Date of registration'
+        />
       </div>
       <div class='form-group neon-button form-buttons'>
-        <button type='button' *ngIf='!editMode' (click)='onEditClick()'>Edit</button>
-        <button type='button' *ngIf='editMode' (click)='onCancelEditClick()'>Cancel</button>
-        <button type='submit' *ngIf='editMode' [disabled]='!userInfoForm.valid && userInfoForm.touched'>Update</button>
+        <button type='button' *ngIf='!editMode' (click)='onEditClick()'>
+          Edit
+        </button>
+        <button type='button' *ngIf='editMode' (click)='onCancelEditClick()'>
+          Cancel
+        </button>
+        <button
+          type='submit'
+          *ngIf='editMode'
+          [disabled]='!userInfoForm.valid && userInfoForm.touched'
+        >
+          Update
+        </button>
       </div>
     </form>
   </div>
-  <div class='user-exercises-list'>
-    <div class='neon-button'>
-      <button class=''>Add New!</button>
-    </div>
-    <div class='list'>
-      <ul>
-        <li>XXXXXXXXXxx</li>
-        <li>XXXXXXXXXxx</li>
-        <li>XXXXXXXXXxx</li>
-      </ul>
-    </div>
-  </div>
-  <div>
-
-  </div>
+  <app-exercise-list></app-exercise-list>
 </div>
