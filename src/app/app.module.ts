@@ -21,8 +21,9 @@ import { AuthGuard } from './auth/auth.guard'
 import { RouteNames } from './model/RouteNames'
 import { RegisterComponent } from './main/component/register/register/register.component'
 import { UserComponent } from './main/component/user/user/user.component'
-import { ExerciseListComponent } from './main/component/exercise/exercise-list/exercise-list.component';
+import { ExerciseListComponent } from './main/component/exercise/exercise-list/exercise-list.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { PaginationComponent } from './utils/pagination/pagination/pagination.component'
 
 const routes: Routes = [
   {
@@ -66,6 +67,7 @@ const routes: Routes = [
     RegisterComponent,
     UserComponent,
     ExerciseListComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

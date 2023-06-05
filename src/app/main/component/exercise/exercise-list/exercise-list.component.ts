@@ -11,6 +11,7 @@ import { UserService } from '../../user/service/user.service'
 })
 export class ExerciseListComponent implements OnInit {
   userExercises: any
+  page: any
 
   constructor(
     private modalService: NgbModal,
@@ -18,8 +19,9 @@ export class ExerciseListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userService.getUserExercises().subscribe((userExercises) => {
-      this.userExercises = userExercises
+    this.userService.getUserExercises().subscribe((page) => {
+      this.page = page
+      this.userExercises = page.content
     })
   }
 
@@ -31,5 +33,12 @@ export class ExerciseListComponent implements OnInit {
       })
       modalRef.componentInstance.exercise = exercise
     }
+  }
+
+  pageChange($event: number) {
+    this.userService.getUserExercises($event).subscribe((page) => {
+      this.page = page
+      this.userExercises = page.content
+    })
   }
 }

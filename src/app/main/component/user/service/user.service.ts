@@ -17,8 +17,8 @@ export class UserService {
   }
   getUserExercises(
     page: number = 0,
-    size: number = 10,
-    sort: string = 'name, asc',
+    size: number = 2,
+    sort: string = 'category, asc',
     filter: string = ''
   ): Observable<Page<Exercise>> {
     let params = new HttpParams()

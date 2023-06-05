@@ -1,0 +1,9 @@
+.container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.neon-button button{
+  width: 75px;
+  height: 50px;
+}

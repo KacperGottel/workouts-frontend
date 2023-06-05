@@ -1,31 +1,84 @@
 import { JsonObject, JsonProperty } from 'json2typescript'
 
+@JsonObject('Sort')
+export class Sort {
+  @JsonProperty('empty', Boolean)
+  empty: boolean = false
+
+  @JsonProperty('sorted', Boolean)
+  sorted: boolean = false
+
+  @JsonProperty('unsorted', Boolean)
+  unsorted: boolean = false
+}
+
+@JsonObject('Pageable')
+export class Pageable {
+  @JsonProperty('sort', Sort)
+  sort: Sort = new Sort()
+
+  @JsonProperty('offset', Number)
+  offset: number = 0
+
+  @JsonProperty('pageNumber', Number)
+  pageNumber: number = 0
+
+  @JsonProperty('pageSize', Number)
+  pageSize: number = 0
+
+  @JsonProperty('paged', Boolean)
+  paged: boolean = false
+
+  @JsonProperty('unpaged', Boolean)
+  unpaged: boolean = false
+}
+
 @JsonObject('Page')
 export class Page<T> {
-  @JsonProperty('content', Object, true)
-  content: T[] | undefined
+  @JsonProperty('content', [Object])
+  content: T[] = []
 
-  @JsonProperty('totalPages', Number, true)
-  totalPages: number | undefined
+  @JsonProperty('pageable', Pageable)
+  pageable: Pageable = new Pageable()
 
-  @JsonProperty('totalElements', Number, true)
-  totalElements: number | undefined
+  @JsonProperty('totalPages', Number)
+  totalPages: number = 0
 
-  @JsonProperty('size', Number, true)
-  size: number | undefined
+  @JsonProperty('totalElements', Number)
+  totalElements: number = 0
 
-  @JsonProperty('number', Number, true)
-  number: number | undefined
+  @JsonProperty('last', Boolean)
+  last: boolean = false
 
-  @JsonProperty('numberOfElements', Number, true)
-  numberOfElements: number | undefined
+  @JsonProperty('size', Number)
+  size: number = 0
 
-  @JsonProperty('first', Boolean, true)
-  first: boolean | undefined
+  @JsonProperty('number', Number)
+  number: number = 0
 
-  @JsonProperty('last', Boolean, true)
-  last: boolean | undefined
+  @JsonProperty('sort', Sort)
+  sort: Sort = new Sort()
 
-  @JsonProperty('empty', Boolean, true)
-  empty: boolean | undefined
+  @JsonProperty('first', Boolean)
+  first: boolean = false
+
+  @JsonProperty('numberOfElements', Number)
+  numberOfElements: number = 0
+
+  @JsonProperty('empty', Boolean)
+  empty: boolean = false
+
+  constructor(data: any) {
+    this.content = data.content
+    this.pageable = data.pageable
+    this.totalPages = data.totalPages
+    this.totalElements = data.totalElements
+    this.last = data.last
+    this.size = data.size
+    this.number = data.number
+    this.sort = data.sort
+    this.first = data.first
+    this.numberOfElements = data.numberOfElements
+    this.empty = data.empty
+  }
 }
