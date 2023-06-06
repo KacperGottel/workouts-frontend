@@ -1,3 +1,9 @@
+.container{
+  border: 1px solid blueviolet;
+  padding: 25px;
+  background: #010101;
+}
+
 .exercise-details-modal .modal {
   border: 1px solid white;
   display: flex;
@@ -17,7 +23,6 @@
 }
 
 .exercise-details-modal .modal-header {
-  background: linear-gradient(to top, black 90%, #470bab);
   border-radius: 0;
   border: none;
   display: flex;
@@ -25,11 +30,10 @@
 }
 
 .exercise-details-modal .modal-footer {
-  background: linear-gradient(black 90%, #470bab);
   border-radius: 0;
   border: none;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .neon-button button{
@@ -37,7 +41,7 @@
   font-family: system-ui;
   font-size: 1rem;
   color: #6b5194;
-  width: 125px;
+  width: 400px;
   padding: 10px;
   background: #6b5194 none;
   -webkit-background-clip: text;

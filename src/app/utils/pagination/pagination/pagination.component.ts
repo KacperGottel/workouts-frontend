@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Page } from '../../../model/Page'
-import { Exercise } from '../../../model/Workout'
 
 @Component({
   selector: 'app-pagination',
@@ -8,7 +7,7 @@ import { Exercise } from '../../../model/Workout'
   styleUrls: ['./pagination.component.css'],
 })
 export class PaginationComponent {
-  @Input() page: Page<Exercise> | undefined
+  @Input() page: Page<any> | undefined
   @Output() pageChange: EventEmitter<number> = new EventEmitter<number>()
 
   hasPrevious(): boolean {

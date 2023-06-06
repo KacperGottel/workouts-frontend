@@ -1,7 +1,8 @@
 <div class='container'>
-    <div class='neon-button'>
-      <button [disabled]="!hasPrevious()" (click)="previousPage()"><=</button>
-    </div><div class='neon-button'>
-      <button [disabled]="!hasNext()" (click)="nextPage()">=></button>
-    </div>
+  <div class='neon-button'>
+    <button [disabled]='!hasPrevious()' (click)='previousPage()'><<</button>
+  </div>
+  <div class='neon-button'>
+    <button [disabled]='!hasNext()' (click)='nextPage()'>>></button>
+  </div>
 </div>

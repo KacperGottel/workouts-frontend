@@ -1,9 +1,11 @@
 .container{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 25px;
+  margin: 25px;
 }
 
 .neon-button button{
   width: 75px;
-  height: 50px;
+  padding: 10px;
 }
