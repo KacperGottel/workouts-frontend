@@ -13,7 +13,7 @@ export class ExerciseListComponent implements OnInit {
   userExercises: any
   page: any
   showPagination: boolean = true
-  inputValue: any
+  filterValue: string = ''
 
   constructor(
     private modalService: NgbModal,
@@ -38,10 +38,19 @@ export class ExerciseListComponent implements OnInit {
     }
   }
 
-  pageChange($event: number) {
-    this.userService.getUserExercises($event).subscribe((page) => {
+  pageChange(pageNumber: number) {
+    this.userService.getUserExercises(pageNumber).subscribe((page) => {
       this.page = page
       this.userExercises = page.content
     })
+  }
+
+  change(filterValue: string) {
+    this.userService
+      .getUserExercises(0, 7, 'category, asc', filterValue)
+      .subscribe((page) => {
+        this.page = page
+        this.userExercises = page.content
+      })
   }
 }

@@ -1,7 +1,7 @@
 <div class='user-list-container'>
   <div class='button-wrapper'>
     <div class='search'>
-      <input type='text' id='search' placeholder='Search...' [(ngModel)]="inputValue"
+      <input type='text' id='search' placeholder='Search...' [(ngModel)]="filterValue" (ngModelChange)='change(filterValue)'
              [ngbTooltip]="'Search in your exercises'" [placement]="'top-left'" />
     </div>
     <div class='neon-button'>
