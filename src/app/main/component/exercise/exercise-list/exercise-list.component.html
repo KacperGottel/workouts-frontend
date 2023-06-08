@@ -1,7 +1,11 @@
 <div class='user-list-container'>
   <div class='button-wrapper'>
+    <div class='search'>
+      <input type='text' id='search' placeholder='Search...' [(ngModel)]="inputValue"
+             [ngbTooltip]="'Search in your exercises'" [placement]="'top-left'" />
+    </div>
     <div class='neon-button'>
-      <button class=''>Add New!</button>
+      <button >Add New!</button>
     </div>
   </div>
   <div class='list'>
@@ -16,4 +20,4 @@
     </div>
   </div>
 </div>
-<app-pagination [page]='page' (pageChange)='pageChange($event)'></app-pagination>
+<app-pagination *ngIf='showPagination' [page]='page' (pageChange)='pageChange($event)'></app-pagination>

@@ -12,6 +12,8 @@ import { UserService } from '../../user/service/user.service'
 export class ExerciseListComponent implements OnInit {
   userExercises: any
   page: any
+  showPagination: boolean = true
+  inputValue: any
 
   constructor(
     private modalService: NgbModal,
@@ -22,6 +24,7 @@ export class ExerciseListComponent implements OnInit {
     this.userService.getUserExercises().subscribe((page) => {
       this.page = page
       this.userExercises = page.content
+      this.showPagination = page.size > 6
     })
   }
 

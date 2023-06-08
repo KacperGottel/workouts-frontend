@@ -17,7 +17,7 @@ export class UserService {
   }
   getUserExercises(
     page: number = 0,
-    size: number = 2,
+    size: number = 7,
     sort: string = 'category, asc',
     filter: string = ''
   ): Observable<Page<Exercise>> {
