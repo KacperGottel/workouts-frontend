@@ -1,5 +1,5 @@
 .login-card {
-  background-color: #010101;
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid darkviolet;
   width: 400px;
   height: 550px;
@@ -8,6 +8,11 @@
   justify-content: center;
   align-content: center;
   padding: 10px;
+}
+
+.login-card:hover {
+  transition: background-color 2s;
+  background-color: black;
 }
 
 .login-content {

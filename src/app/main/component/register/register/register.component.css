@@ -19,7 +19,7 @@
 }
 
 .register-card {
-  background-color: #010101;
+  background-color: rgba(0, 0, 0, 0.5);
   border: 1px solid darkviolet;
   width: 450px;
   height: 650px;
@@ -28,6 +28,10 @@
   justify-content: center;
   align-content: center;
   padding: 20px;
+}
+.register-card:hover {
+  transition: background-color 1s;
+  background-color: black;
 }
 
 .register-button {
