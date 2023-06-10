@@ -1,5 +1,6 @@
 .login-card {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 1s;
   border: 1px solid darkviolet;
   width: 400px;
   height: 550px;
@@ -11,8 +12,8 @@
 }
 
 .login-card:hover {
-  transition: background-color 2s;
-  background-color: black;
+  transition: background-color 1s;
+  background-color: rgb(0,0,0,0.7);
 }
 
 .login-content {
@@ -169,8 +170,5 @@ button:disabled{
   color: rgb(184, 146, 248);
   font-weight: bolder;
 }
-.register-paragraph a:hover {
-  margin: 10px;
-  padding: 10px;
-}
+
 
