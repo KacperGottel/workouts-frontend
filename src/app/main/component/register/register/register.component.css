@@ -19,7 +19,8 @@
 }
 
 .register-card {
-  background-color: #010101;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color 1s;
   border: 1px solid darkviolet;
   width: 450px;
   height: 650px;
@@ -29,15 +30,15 @@
   align-content: center;
   padding: 20px;
 }
+.register-card:hover {
+  transition: background-color 1s;
+  background-color: rgb(0,0,0,0.9);
+}
 
 .register-button {
   display: flex;
   justify-content: center;
   margin-top: 25px;
-}
-
-.ng-invalid .ng-touched{
-  border: 1px solid red;
 }
 
 button:disabled {

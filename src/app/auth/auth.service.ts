@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { tap } from 'rxjs/operators'
 import { Observable, Subject } from 'rxjs'
-import { logout, registerUser, token } from '../model/Api'
+import { logout, registerUser, token, tokenCheck } from '../model/Api'
 import { SharedService } from '../shared.service'
 import { Router } from '@angular/router'
 import { RouteNames } from '../model/RouteNames'
@@ -29,6 +29,20 @@ export class AuthService {
     })
   }
 
+  validateToken() {
+    this.http
+      .get<boolean>(tokenCheck)
+      .pipe(
+        tap((res) => {
+          if (res) {
+            this.isUserLoggedIn = true
+            this.isLoggedSubject.next(true)
+          }
+        })
+      )
+      .subscribe()
+  }
+
   login(username: string, password: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -44,13 +58,8 @@ export class AuthService {
     )
   }
 
-  getToken(): string | null | undefined {
+  getToken(): any {
     return localStorage.getItem(this.tokenKey)
-  }
-
-  addTokenHeader(headers: HttpHeaders): HttpHeaders {
-    const token = this.getToken()
-    return headers.append('Authorization', `Bearer ${token}`)
   }
 
   logout(): Observable<any> {
@@ -65,12 +74,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return (
-      this.isUserLoggedIn &&
-      this.getToken() != undefined &&
-      this.getToken() != null &&
-      this.getToken() != ''
-    )
+    return this.isUserLoggedIn && this.getToken()
   }
 
   register(email: string, password: string, username: string): Observable<any> {

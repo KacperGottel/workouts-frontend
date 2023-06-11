@@ -5,4 +5,5 @@ export const RouteNames = {
   Spinner: 'spinner',
   Workout: 'workout',
   Register: 'register',
+  User: 'user',
 }

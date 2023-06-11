@@ -1,33 +1,22 @@
 .login-card {
-  background-color: rgba(0, 0, 0, 0.3);
-  transition: background-color 1s;
+  background-color: #010101;
   border: 1px solid darkviolet;
   width: 400px;
-  height: 550px;
+  height: 500px;
   display: flex;
   position: relative;
   justify-content: center;
   align-content: center;
-  padding: 10px;
-}
-
-.login-card:hover {
-  transition: background-color 1s;
-  background-color: rgb(0,0,0,0.7);
+  padding: 20px;
 }
 
 .login-content {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
   margin: 10px;
   padding: 10px;
-}
-
-.inputs{
   display: flex;
+  justify-content: space-between;
+  align-content: center;
   flex-direction: column;
-  flex: fit-content;
 }
 
 .login-title {
@@ -37,8 +26,6 @@
   font-family: system-ui;
   font-weight: lighter;
   font-size: 2.4rem;
-  margin: 10px;
-  padding: 10px;
 }
 
 input:-webkit-autofill {
@@ -51,17 +38,9 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #e85fb7;
 }
 
-.form{
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin: 10px;
-}
-
 .login-email {
   color: rgba(197, 94, 174, 0.81);
   margin: 10px;
-  padding: 5px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -82,7 +61,6 @@ input:-webkit-autofill:focus {
 .login-password {
   color: rgba(197, 94, 174, 0.81);
   margin: 10px;
-  padding: 5px;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -100,11 +78,28 @@ input:-webkit-autofill:focus {
   color: #e85fb7;
 }
 
+.login-remember-me {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 5px;
+}
+
+.login-remember-me input[type=checkbox] {
+  width: 10%;
+  border: 1px solid #e27df8;
+  background-color: rgb(54, 22, 107);
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 8px 16px;
+  margin: 8px 0;
+}
+
 .login-button {
   display: flex;
   justify-content: center;
-  margin: 10px;
-  padding: 10px;
 }
 
 .neon-button button {
@@ -158,8 +153,6 @@ button:disabled{
   font-family: system-ui;
   font-size: 1rem;
   color: rgb(85, 62, 122);
-  margin: 10px;
-  padding: 10px;
 }
 
 .register-paragraph a {
@@ -172,3 +165,5 @@ button:disabled{
 }
 
 
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

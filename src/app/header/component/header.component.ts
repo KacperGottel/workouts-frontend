@@ -11,7 +11,7 @@ import { RouteNames } from '../../model/RouteNames'
 })
 export class HeaderComponent implements OnInit {
   loginButtonName: string = 'SIGN IN'
-  private isUserLogged = false
+  public isUserLogged = false
 
   constructor(
     private sharedService: SharedService,
@@ -25,14 +25,17 @@ export class HeaderComponent implements OnInit {
     })
   }
 
-  goHome() {
+  onHomeClick() {
     this.router.navigate([RouteNames.Home, RouteNames.Spinner])
     this.sharedService.isSpinnerEnabledEmitter.emit(true)
   }
 
-  goAdd() {}
+  onUserPanelClick() {
+    this.router.navigate([RouteNames.Home, RouteNames.User])
+    this.sharedService.isSpinnerEnabledEmitter.emit(false)
+  }
 
-  handleLogging() {
+  onSignInOrOutClick() {
     if (this.isUserLogged) {
       this.authService.logout().subscribe(() => {
         this.loginButtonName = 'SIGN IN'

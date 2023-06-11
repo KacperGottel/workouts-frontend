@@ -1,14 +1,11 @@
 .header {
-  /*background-color: black;*/
-  /*background: linear-gradient(to bottom, black, #110015);*/
   background-color: transparent;
   background-image: url('src/assets/background4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 60px;
+  height: 100px;
   max-width: 100%;
   width: 100%;
-  margin-top: 5px;
   display: flex;
 }
 
@@ -24,7 +21,6 @@
   -webkit-text-fill-color: transparent;
   border-width: 1px;
   border-color: #6b5194;
-  border-radius: 0;
 }
 
 .neon-button button:hover {
@@ -41,6 +37,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .neon-button button:focus {
   background: none;
   text-decoration: inherit;
@@ -55,14 +52,19 @@
   -webkit-text-fill-color: transparent;
 }
 
+button:disabled {
+  opacity: 0.6;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: center;
 }
+
 .button-list {
   display: flex;
   justify-content: space-between;
-  width: 500px;
+  width: 450px;
   height: 55px;
   margin: auto;
 }

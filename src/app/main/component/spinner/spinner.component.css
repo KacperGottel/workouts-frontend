@@ -1,7 +1,9 @@
 .dumbbell {
   opacity: 0.2;
+  transition: opacity 1s;
 }
 
 .dumbbell:hover {
+  transition: opacity 1s;
   opacity: 1;
 }
