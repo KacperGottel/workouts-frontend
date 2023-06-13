@@ -86,8 +86,6 @@ export class AuthService {
       email: email,
       password: password,
     }
-    return this.http
-      .post(registerUser, { registerData }, { headers })
-      .pipe(tap(() => {}))
+    return this.http.post(registerUser, { registerData }, { headers })
   }
 }
