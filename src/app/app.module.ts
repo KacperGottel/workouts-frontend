@@ -10,7 +10,7 @@ import { WorkoutComponent } from './main/component/workout/workout.component'
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { TokenInterceptor } from './auth/token.interceptor'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-import { ExerciseDetailsModalComponent } from './main/component/workout/exercise-details-modal/exercise-details-modal.component'
+import { ExerciseDetailsModalComponent } from './main/component/exercise/exercise-details-modal/exercise-details-modal.component'
 import { DatePipe, NgOptimizedImage } from '@angular/common'
 import { YoutubeEmbeddedPipe } from './utils/youtube/youtube-embedded.pipe'
 import { YoutubeComponent } from './utils/youtube/youtube.component'
@@ -24,6 +24,7 @@ import { UserComponent } from './main/component/user/user/user.component'
 import { ExerciseListComponent } from './main/component/exercise/exercise-list/exercise-list.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PaginationComponent } from './utils/pagination/pagination/pagination.component'
+import { ExerciseAddComponentModal } from './main/component/exercise/exercise-add-modal/exercise-add-component-modal.component'
 
 const routes: Routes = [
   {
@@ -68,6 +69,7 @@ const routes: Routes = [
     UserComponent,
     ExerciseListComponent,
     PaginationComponent,
+    ExerciseAddComponentModal,
   ],
   imports: [
     BrowserModule,

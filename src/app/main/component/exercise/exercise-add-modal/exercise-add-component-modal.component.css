@@ -1,0 +1,17 @@
+.container{
+  border: 1px solid blueviolet;
+  padding: 25px;
+  background: #010101;
+  display: flex;
+}
+
+.exercise-add-modal .modal .modal-header .modal-content .modal-footer {
+  background-color: #010101;
+  display: flex;
+  border: none
+}
+
+.ng-untouched .ng-pristine .ng-valid{
+  background-color: #010101;
+  border: none
+}
