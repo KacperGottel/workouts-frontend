@@ -1,29 +1,36 @@
 <div class='container'>
   <div class='exercise-add-modal'>
-    <div class='modal-header'>
-      <div>
-        <div class='login-title'>ADD EXERCISE</div>
+    <div class='login-title'>ADD EXERCISE</div>
+    <form
+      class='form'
+      [formGroup]='exerciseForm'
+      (ngSubmit)='onSubmit()'
+      *ngIf='exerciseForm'
+    >
+      <div class='form-group name'>
+        <label for='name'>Name:</label>
+        <input
+          type='text'
+          id='name'
+          formControlName='name'
+          placeholder='Enter exercise name'
+          [disableTooltip]="!exerciseForm.get('name')?.invalid"
+          [ngbTooltip]="'Exercise name is required'"
+          [placement]="'top'"
+        />
       </div>
-    </div>
-    <div class='modal-content'>
-      <div>
-        <div class='form'>
-          <form>
-            FOMR
-          </form>
-        </div>
+      <div class='form-group neon-button form-buttons'>
+        <button type='button' (click)="modal.close('Cancel')">
+          Cancel
+        </button>
+        <button
+          type='submit'
+          [disabled]='!exerciseForm.valid && exerciseForm.touched'
+        >
+          Add!
+        </button>
       </div>
-    </div>
-    <div class='modal-footer'>
-      <div>
-        <div class='neon-button'>
-          <button
-            (click)="modal.close('Cancel')"
-            aria-label='Close'>
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
+    </form>
   </div>
 </div>
+

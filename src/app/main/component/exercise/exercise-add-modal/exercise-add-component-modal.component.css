@@ -5,13 +5,42 @@
   display: flex;
 }
 
-.exercise-add-modal .modal .modal-header .modal-content .modal-footer {
-  background-color: #010101;
+.exercise-add-modal .modal-content .modal-header .modal-footer{
+  padding: 10px;
+  margin:10px;
   display: flex;
-  border: none
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #010101;
 }
 
-.ng-untouched .ng-pristine .ng-valid{
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
   background-color: #010101;
-  border: none
+  padding: 10px;
+}
+
+.name {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name input[type=text]{
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
 }
