@@ -57,6 +57,17 @@
   background-color: rgb(32, 13, 63);
   color: #e85fb7;
 }
+.default input[type=number]{
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
+}
 
 .description {
   color: rgba(197, 94, 174, 0.81);
@@ -117,4 +128,24 @@
   display: flex;
   padding: 10px;
   margin: 10px;
+}
+
+.select {
+  color: rgba(197, 94, 174, 0.81);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.select select{
+  width: 100%;
+  padding: 8px 16px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #e27df8;
+  border-radius: 8px;
+  box-sizing: border-box;
+  background-color: rgb(32, 13, 63);
+  color: #e85fb7;
 }
