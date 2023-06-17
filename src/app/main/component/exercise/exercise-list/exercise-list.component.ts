@@ -41,7 +41,7 @@ export class ExerciseListComponent implements OnInit {
   openExerciseAddForm(): void {
     const modalRef = this.modalService.open(ExerciseAddComponentModal, {
       windowClass: 'exercise-add-modal',
-      size: 'sm',
+      size: 'lg',
     })
   }
 
