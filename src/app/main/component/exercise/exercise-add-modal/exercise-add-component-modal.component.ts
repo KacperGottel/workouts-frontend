@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core'
+import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   selector: 'app-exercise-add',
   templateUrl: './exercise-add-component-modal.component.html',
   styleUrls: ['./exercise-add-component-modal.component.css'],
+  encapsulation: ViewEncapsulation.ShadowDom,
 })
 export class ExerciseAddComponentModal implements AfterViewInit {
   exerciseForm: FormGroup
