@@ -1,7 +1,7 @@
 <div class="container">
   <div class="exercise-add-modal">
     <div class="title">
-      <div class="login-title">ADD EXERCISE</div>
+      <div>ADD EXERCISE</div>
     </div>
 
     <div class="form-box">
@@ -34,7 +34,13 @@
                 [ngbTooltip]="'Exercise category is required'"
                 [placement]="'top'"
               >
-                  <option *ngFor='let category of categories' value='{{ category }}' class='option'>{{ category | uppercase }}</option>
+                <option
+                  *ngFor="let category of categories"
+                  value="{{ category }}"
+                  class="option"
+                >
+                  {{ category | uppercase }}
+                </option>
               </select>
             </div>
             <div class="form-group description">
@@ -46,7 +52,7 @@
                 placeholder="Description"
                 [disableTooltip]="!exerciseForm.get('description')?.invalid"
                 [ngbTooltip]="'Exercise description is required'"
-                [placement]="'top'"
+                [placement]="'bottom'"
               ></textarea>
             </div>
           </div>
@@ -57,30 +63,30 @@
                   <label for="series">Series:</label>
                   <input
                     type="number"
-                    min='3'
-                    max='8'
+                    min="3"
+                    max="8"
                     id="series"
                     formControlName="series"
                     placeholder="Series"
                     [disableTooltip]="!exerciseForm.get('series')?.invalid"
-                    [ngbTooltip]="'Exercise series amount is required'"
-                    [placement]="'top'"
+                    [ngbTooltip]="'Series are required'"
+                    [placement]="'bottom'"
                   />
                 </div>
                 <div>
                   <label for="reps">Reps:</label>
                   <input
                     type="number"
-                    min='2'
-                    max='15'
+                    min="2"
+                    max="15"
                     id="reps"
                     formControlName="reps"
                     placeholder="Reps"
                     [disableTooltip]="!exerciseForm.get('reps')?.invalid"
                     [ngbTooltip]="
-                      'Exercise reps amount in each series is required'
+                      'Reps are required'
                     "
-                    [placement]="'top'"
+                    [placement]="'bottom'"
                   />
                 </div>
               </div>
@@ -94,7 +100,7 @@
                 placeholder="YouTube video link"
                 [disableTooltip]="!!exerciseForm.get('videoUrl')?.touched"
                 [ngbTooltip]="'Exercise YouTube video link'"
-                [placement]="'top'"
+                [placement]="'bottom'"
               />
             </div>
             <div class="form-group default">
