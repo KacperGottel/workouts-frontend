@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ViewEncapsulation } from '@angular/core'
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { ExerciseService } from '../service/exercise.service'
+import { Exercise, ExerciseCategory } from '../../../../model/Workout'
 
 @Component({
   selector: 'app-exercise-add',
@@ -11,8 +13,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 export class ExerciseAddComponentModal implements AfterViewInit {
   exerciseForm: FormGroup
   isReady = false
-  categories = ['PUSH', 'PULL', 'LEGS', 'ACCESSORY']
-  constructor(public modal: NgbActiveModal, private fb: FormBuilder) {
+  categories = [
+    ExerciseCategory.LEGS,
+    ExerciseCategory.PUSH,
+    ExerciseCategory.PULL,
+    ExerciseCategory.ACCESSORY,
+  ]
+  constructor(
+    public modal: NgbActiveModal,
+    private fb: FormBuilder,
+    private exerciseService: ExerciseService
+  ) {
     this.exerciseForm = this.fb.group({
       name: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -35,6 +46,20 @@ export class ExerciseAddComponentModal implements AfterViewInit {
       const imgUrl = this.exerciseForm.get('imgUrl')?.value
       const series = this.exerciseForm.get('series')?.value
       const reps = this.exerciseForm.get('reps')?.value
+
+      const newExercise = new Exercise()
+      newExercise.name = name
+      newExercise.category = category
+      newExercise.description = description
+      newExercise.video_url = videoUrl
+      newExercise.img_url = imgUrl
+      newExercise.series = series
+      newExercise.reps = reps
+
+      this.exerciseService.addNewExercise(newExercise).subscribe(() => {
+        this.exerciseForm.reset()
+        this.modal.close()
+      })
     }
   }
 }

@@ -33,7 +33,12 @@
                 [disableTooltip]="!exerciseForm.get('category')?.invalid"
                 [ngbTooltip]="'Exercise category is required'"
                 [placement]="'top'"
+              ><option
+                value=""
+                class="option"
               >
+                {{ 'Choose category...' }}
+              </option>
                 <option
                   *ngFor="let category of categories"
                   value="{{ category }}"
@@ -49,7 +54,7 @@
                 type="text"
                 id="description"
                 formControlName="description"
-                placeholder="Description"
+                placeholder="Describe in details..."
                 [disableTooltip]="!exerciseForm.get('description')?.invalid"
                 [ngbTooltip]="'Exercise description is required'"
                 [placement]="'bottom'"
@@ -69,7 +74,7 @@
                     formControlName="series"
                     placeholder="Series"
                     [disableTooltip]="!exerciseForm.get('series')?.invalid"
-                    [ngbTooltip]="'Series are required'"
+                    [ngbTooltip]="'Series are required [3-8]'"
                     [placement]="'bottom'"
                   />
                 </div>
@@ -84,7 +89,7 @@
                     placeholder="Reps"
                     [disableTooltip]="!exerciseForm.get('reps')?.invalid"
                     [ngbTooltip]="
-                      'Reps are required'
+                      'Reps are required [2-15]'
                     "
                     [placement]="'bottom'"
                   />
@@ -121,7 +126,8 @@
               </button>
               <button
                 type="submit"
-                [disabled]="!exerciseForm.valid && exerciseForm.touched"
+                [ngClass]="{'disabled': exerciseForm.invalid}"
+                [disabled]="exerciseForm.invalid && exerciseForm.touched"
               >
                 Add!
               </button>

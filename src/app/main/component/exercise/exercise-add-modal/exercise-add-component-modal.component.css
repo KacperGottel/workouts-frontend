@@ -9,18 +9,12 @@
   width: 900px;
 }
 
-.form-box{
+.form-box {
   width: 800px;
 }
 
-.ng-invalid .ng-touched{
-  border: 1px solid red
-}
-.ng-invalid .ng-touched{
-  border: 1px solid red
-}
 
-.exercise-add-modal{
+.exercise-add-modal {
   opacity: 0.9;
   padding: 5px;
   margin: 5px;
@@ -32,7 +26,7 @@
   background-color: black;
 }
 
-.exercise-add-modal:hover{
+.exercise-add-modal:hover {
   opacity: 1;
 }
 
@@ -53,7 +47,7 @@
   gap: 5px;
 }
 
-.default input[type=text]{
+.default input[type=text] {
   width: 100%;
   padding: 14px 16px;
   margin: 8px 0;
@@ -64,7 +58,8 @@
   background-color: rgb(32, 13, 63);
   color: #e85fb7;
 }
-.default input[type=number]{
+
+.default input[type=number] {
   width: 100%;
   padding: 14px 16px;
   margin: 8px 0;
@@ -83,9 +78,10 @@
   flex-direction: column;
   gap: 5px;
   height: 150px;
+  font-family: system-ui;
 }
 
-.description textarea{
+.description textarea {
   width: 100%;
   height: 100%;
   padding: 14px 16px;
@@ -117,7 +113,8 @@
   float: right;
   width: 50%;
 }
-.form-buttons{
+
+.form-buttons {
   margin-top: 20px;
   flex-direction: row;
   display: flex;
@@ -168,22 +165,21 @@
   -webkit-text-fill-color: transparent;
 }
 
-button:disabled{
+.disabled {
   opacity: 0.5;
 }
 
 
-.series-reps{
+.series-reps {
   display: flex;
   flex-direction: row;
   gap: 25%;
 }
 
-.title{
+.title {
   display: flex;
   padding: 10px;
-  margin: 10px;
-  margin-top: 20px;
+  margin: 20px 10px 10px;
   color: darkviolet;
   text-shadow: 1px 1px 1px #743ad5;
   text-decoration: #010101;
@@ -201,7 +197,7 @@ button:disabled{
   gap: 5px;
 }
 
-.select select{
+.select select {
   width: 100%;
   padding: 14px 16px;
   margin: 8px 0;
@@ -211,9 +207,7 @@ button:disabled{
   box-sizing: border-box;
   background-color: rgb(32, 13, 63);
   color: #e85fb7;
-}
-
-::ng-deep .ng-invalid{
-  border: 1px solid red;
+  font-family: system-ui;
+  font-weight: lighter;
 }
 
