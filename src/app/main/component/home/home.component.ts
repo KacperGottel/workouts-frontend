@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { SharedService } from '../../../shared.service'
 import { Router } from '@angular/router'
 import { RouteNames } from '../../../model/RouteNames'
+import { ToastService } from '../../../utils/toast/toast.service'
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,11 @@ import { RouteNames } from '../../../model/RouteNames'
 export class HomeComponent implements OnInit {
   isSpinnerActive: boolean = true
 
-  constructor(private sharedService: SharedService, private router: Router) {}
+  constructor(
+    private sharedService: SharedService,
+    private router: Router,
+    private toastService: ToastService
+  ) {}
 
   ngOnInit(): void {
     if (this.isSpinnerActive) {
@@ -20,5 +25,6 @@ export class HomeComponent implements OnInit {
     this.sharedService.isSpinnerEnabledEmitter.subscribe(
       (val) => (this.isSpinnerActive = val)
     )
+    this.toastService.showOnSuccess('Hello, Angular Toast!')
   }
 }

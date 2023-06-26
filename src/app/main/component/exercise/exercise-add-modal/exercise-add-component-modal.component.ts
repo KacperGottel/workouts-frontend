@@ -3,6 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { ExerciseService } from '../service/exercise.service'
 import { Exercise, ExerciseCategory } from '../../../../model/Workout'
+import { ToastService } from '../../../../utils/toast/toast.service'
 
 @Component({
   selector: 'app-exercise-add',
@@ -22,7 +23,8 @@ export class ExerciseAddComponentModal implements AfterViewInit {
   constructor(
     public modal: NgbActiveModal,
     private fb: FormBuilder,
-    private exerciseService: ExerciseService
+    private exerciseService: ExerciseService,
+    private toastService: ToastService
   ) {
     this.exerciseForm = this.fb.group({
       name: ['', [Validators.required]],
@@ -56,10 +58,16 @@ export class ExerciseAddComponentModal implements AfterViewInit {
       newExercise.series = series
       newExercise.reps = reps
 
-      this.exerciseService.addNewExercise(newExercise).subscribe(() => {
-        this.exerciseForm.reset()
-        this.modal.close()
-      })
+      this.exerciseService.addNewExercise(newExercise).subscribe(
+        (response) => {
+          this.exerciseForm.reset()
+          this.modal.close()
+          this.toastService.showOnSuccess('Hello, Angular Toast!')
+        },
+        (error) => {
+          this.toastService.showOnError('Hello, Angular Toast!')
+        }
+      )
     }
   }
 }

@@ -25,6 +25,8 @@ import { ExerciseListComponent } from './main/component/exercise/exercise-list/e
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PaginationComponent } from './utils/pagination/pagination/pagination.component'
 import { ExerciseAddComponentModal } from './main/component/exercise/exercise-add-modal/exercise-add-component-modal.component'
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CustomToastComponent } from './utils/toast/custom-toast/custom-toast.component'
 
 const routes: Routes = [
   {
@@ -70,6 +72,7 @@ const routes: Routes = [
     ExerciseListComponent,
     PaginationComponent,
     ExerciseAddComponentModal,
+    CustomToastComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +83,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    MatSnackBarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
