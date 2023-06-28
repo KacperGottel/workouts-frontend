@@ -62,10 +62,10 @@ export class ExerciseAddComponentModal implements AfterViewInit {
         (response) => {
           this.exerciseForm.reset()
           this.modal.close()
-          this.toastService.showOnSuccess('Hello, Angular Toast!')
+          this.toastService.showOnSuccess('Success! Exercise has been added.')
         },
         (error) => {
-          this.toastService.showOnError('Hello, Angular Toast!')
+          this.toastService.showOnError('Fail! Exercise has not been added.')
         }
       )
     }

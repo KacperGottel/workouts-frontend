@@ -1,11 +1,16 @@
 .toast-green{
-  background-color: greenyellow;
+  display: flex;
+  justify-content: center;
   font-family: system-ui;
   font-size: 16px;
+  color: #08ec08;
+
 }
 
 .toast-red{
-  background-color: darkred;
+  display: flex;
+  justify-content: center;
   font-family: system-ui;
   font-size: 16px;
+  color: #ec4747;
 }

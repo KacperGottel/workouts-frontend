@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { UserService } from '../service/user.service'
 import { DatePipe } from '@angular/common'
+import { ToastService } from '../../../../utils/toast/toast.service'
 
 @Component({
   selector: 'app-user',
@@ -15,7 +16,8 @@ export class UserComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private toastService: ToastService
   ) {
     this.userInfoForm = this.fb.group({
       email: [
@@ -60,10 +62,18 @@ export class UserComponent implements OnInit {
     if (this.userInfoForm.valid) {
       const email = this.userInfoForm.get('email')?.value
       const username = this.userInfoForm.get('username')?.value
-      this.userService.updateUser(email, username).subscribe(() => {
-        this.userInfoForm.reset()
-        this.ngOnInit()
-      })
+      this.userService.updateUser(email, username).subscribe(
+        (response) => {
+          this.userInfoForm.reset()
+          this.ngOnInit()
+          this.toastService.showOnSuccess(
+            'Success! Your info has been updated.'
+          )
+        },
+        (error) => {
+          this.toastService.showOnError('Fail! Your info has not been updated.')
+        }
+      )
     }
   }
 }
