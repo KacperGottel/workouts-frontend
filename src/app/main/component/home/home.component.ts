@@ -3,6 +3,7 @@ import { SharedService } from '../../../shared.service'
 import { Router } from '@angular/router'
 import { RouteNames } from '../../../model/RouteNames'
 import { ToastService } from '../../../utils/toast/toast.service'
+import { AuthService } from '../../../auth/auth.service'
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private sharedService: SharedService,
     private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -25,6 +27,8 @@ export class HomeComponent implements OnInit {
     this.sharedService.isSpinnerEnabledEmitter.subscribe(
       (val) => (this.isSpinnerActive = val)
     )
-    this.toastService.showOnSuccess('Hello, Angular Toast!')
+    if (!this.authService.isLoggedIn()) {
+      this.toastService.showOnSuccess('Welcome! Sign in and click a dumbbell!')
+    }
   }
 }

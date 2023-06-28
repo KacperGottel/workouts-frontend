@@ -9,10 +9,10 @@ export class ToastService {
   constructor(private snackBar: MatSnackBar) {}
 
   showOnSuccess(message: string) {
-    this.show(message, 400000, 'toast-green')
+    this.show(message, 3000, 'toast-green')
   }
   showOnError(message: string) {
-    this.show(message, 4000, 'toast-red')
+    this.show(message, 3000, 'toast-red')
   }
 
   private show(
@@ -22,8 +22,8 @@ export class ToastService {
   ): void {
     this.snackBar.openFromComponent(CustomToastComponent, {
       duration: duration,
-      horizontalPosition: 'end',
-      verticalPosition: 'top',
+      horizontalPosition: 'center',
+      verticalPosition: 'bottom',
       data: { message, backgroundColor },
     })
   }
