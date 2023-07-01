@@ -145,11 +145,11 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: transparent;
 }
 
-button:disabled{
+button:disabled {
   opacity: 0.5;
 }
 
-.register-paragraph p{
+.register-paragraph p {
   font-family: system-ui;
   font-size: 1rem;
   color: rgb(85, 62, 122);
@@ -159,11 +159,17 @@ button:disabled{
   color: rgb(128, 90, 192);
   font-weight: bolder;
 }
+
 .register-paragraph a:hover {
   color: rgb(184, 146, 248);
   font-weight: bolder;
 }
 
+html, body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: system-ui, "Helvetica Neue", sans-serif;
+}

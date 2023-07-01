@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { Exercise } from '../../../../model/Workout'
-import { ExerciseDetailsModalComponent } from '../../workout/exercise-details-modal/exercise-details-modal.component'
+import { ExerciseDetailsModalComponent } from '../exercise-details-modal/exercise-details-modal.component'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { UserService } from '../../user/service/user.service'
+import { ExerciseAddComponentModal } from '../exercise-add-modal/exercise-add-component-modal.component'
 
 @Component({
   selector: 'app-exercise-list',
@@ -28,7 +29,7 @@ export class ExerciseListComponent implements OnInit {
     })
   }
 
-  showExerciseDetails(exercise: Exercise): void {
+  openExerciseDetails(exercise: Exercise): void {
     if (exercise) {
       const modalRef = this.modalService.open(ExerciseDetailsModalComponent, {
         windowClass: 'exercise-details-modal',
@@ -36,6 +37,12 @@ export class ExerciseListComponent implements OnInit {
       })
       modalRef.componentInstance.exercise = exercise
     }
+  }
+  openExerciseAddForm(): void {
+    const modalRef = this.modalService.open(ExerciseAddComponentModal, {
+      windowClass: 'exercise-add-modal',
+      size: 'lg',
+    })
   }
 
   pageChange(pageNumber: number) {

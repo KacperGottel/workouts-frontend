@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../../../../auth/auth.service'
 import { Router } from '@angular/router'
 import { RouteNames } from '../../../../model/RouteNames'
+import { ToastService } from '../../../../utils/toast/toast.service'
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,8 +30,15 @@ export class LoginComponent {
   onSubmit() {
     const email = this.loginForm.get('email')?.value
     const password = this.loginForm.get('password')?.value
-    this.authService.login(email, password).subscribe(() => {
-      this.router.navigate([RouteNames.Home, RouteNames.Spinner])
-    })
+    this.authService.login(email, password).subscribe(
+      (res) => {
+        this.toastService.showOnSuccess('Success! You are signed in.')
+        this.router.navigate([RouteNames.Home, RouteNames.Spinner])
+      },
+      (error) => {
+        this.toastService.showOnError('Fail! You are not signed in.')
+        this.router.navigate([RouteNames.Home, RouteNames.Spinner])
+      }
+    )
   }
 }

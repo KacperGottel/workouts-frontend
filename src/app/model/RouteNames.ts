@@ -6,4 +6,5 @@ export const RouteNames = {
   Workout: 'workout',
   Register: 'register',
   User: 'user',
+  Admin: 'admin',
 }

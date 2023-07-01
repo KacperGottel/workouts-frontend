@@ -73,7 +73,7 @@
   border-image-slice: 1;
   border-width: 1px;
   border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-  background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
+  /*background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);*/
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
