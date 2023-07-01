@@ -25,8 +25,9 @@ import { ExerciseListComponent } from './main/component/exercise/exercise-list/e
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PaginationComponent } from './utils/pagination/pagination/pagination.component'
 import { ExerciseAddComponentModal } from './main/component/exercise/exercise-add-modal/exercise-add-component-modal.component'
-import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CustomToastComponent } from './utils/toast/custom-toast/custom-toast.component'
+import { AdminComponent } from './main/component/admin/admin.component'
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
       {
         path: RouteNames.User,
         component: UserComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: RouteNames.Admin,
+        component: AdminComponent,
         canActivate: [AuthGuard],
       },
       { path: RouteNames.Spinner, component: SpinnerComponent },
@@ -73,6 +79,7 @@ const routes: Routes = [
     PaginationComponent,
     ExerciseAddComponentModal,
     CustomToastComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

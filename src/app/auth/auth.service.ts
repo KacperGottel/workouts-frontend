@@ -8,6 +8,7 @@ import { Router } from '@angular/router'
 import { RouteNames } from '../model/RouteNames'
 
 interface Token {
+  isAdmin: boolean
   token: string
 }
 
@@ -18,6 +19,7 @@ export class AuthService {
   private tokenKey = 'workouts-token'
   private isUserLoggedIn = false
   public isLoggedSubject = new Subject<boolean>()
+  private isAdmin = false
 
   constructor(
     private http: HttpClient,
@@ -53,6 +55,7 @@ export class AuthService {
         localStorage.removeItem(this.tokenKey)
         localStorage.setItem(this.tokenKey, res.token.toString())
         this.isUserLoggedIn = true
+        this.isAdmin = res.isAdmin
         this.isLoggedSubject.next(true)
       })
     )
@@ -67,12 +70,12 @@ export class AuthService {
       tap(() => {
         this.isLoggedSubject.next(false)
         localStorage.removeItem(this.tokenKey)
+        this.isAdmin = false
         this.router.navigate([RouteNames.Home, RouteNames.Login])
         this.sharedService.isSpinnerEnabledEmitter.emit(false)
       })
     )
   }
-
   isLoggedIn(): boolean {
     return this.isUserLoggedIn && this.getToken()
   }
