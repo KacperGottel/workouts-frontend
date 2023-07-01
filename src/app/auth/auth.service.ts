@@ -8,8 +8,8 @@ import { Router } from '@angular/router'
 import { RouteNames } from '../model/RouteNames'
 
 interface Token {
-  isAdmin: boolean
   token: string
+  is_admin: boolean
 }
 
 @Injectable({
@@ -19,7 +19,8 @@ export class AuthService {
   private tokenKey = 'workouts-token'
   private isUserLoggedIn = false
   public isLoggedSubject = new Subject<boolean>()
-  private isAdmin = false
+  public isAdmin = false
+  public isAdminSubject = new Subject<boolean>()
 
   constructor(
     private http: HttpClient,
@@ -29,16 +30,23 @@ export class AuthService {
     this.isLoggedSubject.subscribe((isLogged) => {
       this.isUserLoggedIn = isLogged
     })
+    this.isAdminSubject.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin
+    })
   }
 
   validateToken() {
     this.http
-      .get<boolean>(tokenCheck)
+      .get<Token>(tokenCheck)
       .pipe(
         tap((res) => {
-          if (res) {
-            this.isUserLoggedIn = true
-            this.isLoggedSubject.next(true)
+          this.isUserLoggedIn = true
+          this.isLoggedSubject.next(true)
+          if (res.is_admin) {
+            this.isAdmin = res.is_admin
+            this.isAdminSubject.next(res.is_admin)
+            this.router.navigate([RouteNames.Home, RouteNames.Admin])
+            this.sharedService.isSpinnerEnabledEmitter.emit(false)
           }
         })
       )
@@ -55,8 +63,13 @@ export class AuthService {
         localStorage.removeItem(this.tokenKey)
         localStorage.setItem(this.tokenKey, res.token.toString())
         this.isUserLoggedIn = true
-        this.isAdmin = res.isAdmin
+        this.isAdmin = res.is_admin
         this.isLoggedSubject.next(true)
+        this.isAdminSubject.next(res.is_admin)
+        if (this.isAdmin) {
+          this.router.navigate([RouteNames.Home, RouteNames.Admin])
+          this.sharedService.isSpinnerEnabledEmitter.emit(false)
+        }
       })
     )
   }
@@ -69,8 +82,8 @@ export class AuthService {
     return this.http.post(logout, {}, {}).pipe(
       tap(() => {
         this.isLoggedSubject.next(false)
+        this.isAdminSubject.next(false)
         localStorage.removeItem(this.tokenKey)
-        this.isAdmin = false
         this.router.navigate([RouteNames.Home, RouteNames.Login])
         this.sharedService.isSpinnerEnabledEmitter.emit(false)
       })

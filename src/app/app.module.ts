@@ -18,6 +18,7 @@ import { SafePipe } from './utils/safe.pipe'
 import { LoginComponent } from './main/component/login/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AuthGuard } from './auth/auth.guard'
+import { AuthAdminGuard } from './auth/auth.admin.guard'
 import { RouteNames } from './model/RouteNames'
 import { RegisterComponent } from './main/component/register/register/register.component'
 import { UserComponent } from './main/component/user/user/user.component'
@@ -49,9 +50,12 @@ const routes: Routes = [
       {
         path: RouteNames.Admin,
         component: AdminComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthAdminGuard],
       },
-      { path: RouteNames.Spinner, component: SpinnerComponent },
+      {
+        path: RouteNames.Spinner,
+        component: SpinnerComponent,
+      },
       {
         path: RouteNames.Workout,
         component: WorkoutComponent,

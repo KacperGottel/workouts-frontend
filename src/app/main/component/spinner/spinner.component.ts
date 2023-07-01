@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { Router } from '@angular/router'
 import { SharedService } from '../../../shared.service'
 import { RouteNames } from '../../../model/RouteNames'
@@ -8,8 +8,9 @@ import { RouteNames } from '../../../model/RouteNames'
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.css'],
 })
-export class SpinnerComponent {
+export class SpinnerComponent implements OnInit {
   constructor(private sharedService: SharedService, private router: Router) {}
+  ngOnInit(): void {}
   clickDumbbell() {
     this.router.navigate([RouteNames.Home, RouteNames.Workout])
     this.sharedService.isSpinnerEnabledEmitter.emit(false)

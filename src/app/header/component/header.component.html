@@ -2,10 +2,10 @@
   <div class="collapse navbar-collapse button-wrapper" id="navbarNav">
     <div class="navbar-nav button-list">
       <div class="nav-item neon-button">
-        <button class="nav-ank btn" (click)="onHomeClick()">HOME</button>
+        <button class="nav-ank btn" [disabled]='isAdmin' (click)="onHomeClick()">HOME</button>
       </div>
       <div class="nav-item neon-button">
-        <button class="nav-ank btn" [disabled]='!isUserLogged' (click)="onUserPanelClick()">PANEL</button>
+        <button class="nav-ank btn" [disabled]='!isUserLogged || isAdmin' (click)="onUserPanelClick()">PANEL</button>
       </div>
       <div class="nav-item neon-button">
         <button class="nav-ank btn" (click)="onSignInOrOutClick()">{{ loginButtonName }}</button>
