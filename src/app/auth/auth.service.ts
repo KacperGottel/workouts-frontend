@@ -67,8 +67,8 @@ export class AuthService {
         this.isLoggedSubject.next(true)
         this.isAdminSubject.next(res.is_admin)
         if (this.isAdmin) {
-          this.router.navigate([RouteNames.Home, RouteNames.Admin])
           this.sharedService.isSpinnerEnabledEmitter.emit(false)
+          this.router.navigate([RouteNames.Home, RouteNames.Admin])
         }
       })
     )

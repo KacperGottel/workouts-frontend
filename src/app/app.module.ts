@@ -29,6 +29,7 @@ import { ExerciseAddComponentModal } from './main/component/exercise/exercise-ad
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CustomToastComponent } from './utils/toast/custom-toast/custom-toast.component'
 import { AdminComponent } from './main/component/admin/admin.component'
+import { UserListComponent } from './main/component/admin/user-list/user-list/user-list.component'
 
 const routes: Routes = [
   {
@@ -84,6 +85,7 @@ const routes: Routes = [
     ExerciseAddComponentModal,
     CustomToastComponent,
     AdminComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
