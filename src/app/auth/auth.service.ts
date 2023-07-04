@@ -42,12 +42,7 @@ export class AuthService {
         tap((res) => {
           this.isUserLoggedIn = true
           this.isLoggedSubject.next(true)
-          if (res.is_admin) {
-            this.isAdmin = res.is_admin
-            this.isAdminSubject.next(res.is_admin)
-            this.router.navigate([RouteNames.Home, RouteNames.Admin])
-            this.sharedService.isSpinnerEnabledEmitter.emit(false)
-          }
+          this.handleAdmin(res)
         })
       )
       .subscribe()
@@ -63,13 +58,8 @@ export class AuthService {
         localStorage.removeItem(this.tokenKey)
         localStorage.setItem(this.tokenKey, res.token.toString())
         this.isUserLoggedIn = true
-        this.isAdmin = res.is_admin
         this.isLoggedSubject.next(true)
-        this.isAdminSubject.next(res.is_admin)
-        if (this.isAdmin) {
-          this.sharedService.isSpinnerEnabledEmitter.emit(false)
-          this.router.navigate([RouteNames.Home, RouteNames.Admin])
-        }
+        this.handleAdmin(res)
       })
     )
   }
@@ -81,14 +71,11 @@ export class AuthService {
   logout(): Observable<any> {
     return this.http.post(logout, {}, {}).pipe(
       tap(() => {
-        this.isLoggedSubject.next(false)
-        this.isAdminSubject.next(false)
-        localStorage.removeItem(this.tokenKey)
-        this.router.navigate([RouteNames.Home, RouteNames.Login])
-        this.sharedService.isSpinnerEnabledEmitter.emit(false)
+        this.handleLogout()
       })
     )
   }
+
   isLoggedIn(): boolean {
     return this.isUserLoggedIn && this.getToken()
   }
@@ -103,5 +90,24 @@ export class AuthService {
       password: password,
     }
     return this.http.post(registerUser, { registerData }, { headers })
+  }
+
+  private handleAdmin(res: Token) {
+    if (res.is_admin) {
+      this.isAdmin = res.is_admin
+      this.isAdminSubject.next(res.is_admin)
+      this.router
+        .navigate([RouteNames.Home, RouteNames.Admin])
+        .then(() => this.sharedService.isSpinnerEnabledEmitter.emit(false))
+    }
+  }
+
+  private handleLogout() {
+    this.isLoggedSubject.next(false)
+    this.isAdminSubject.next(false)
+    localStorage.removeItem(this.tokenKey)
+    this.router
+      .navigate([RouteNames.Home, RouteNames.Login])
+      .then(() => this.sharedService.isSpinnerEnabledEmitter.emit(false))
   }
 }

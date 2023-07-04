@@ -4,6 +4,7 @@ import { ExerciseDetailsModalComponent } from '../exercise-details-modal/exercis
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { UserService } from '../../user/service/user.service'
 import { ExerciseAddComponentModal } from '../exercise-add-modal/exercise-add-component-modal.component'
+import { AuthService } from '../../../../auth/auth.service'
 
 @Component({
   selector: 'app-exercise-list',
@@ -18,7 +19,8 @@ export class ExerciseListComponent implements OnInit {
 
   constructor(
     private modalService: NgbModal,
-    private userService: UserService
+    private userService: UserService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {

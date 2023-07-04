@@ -33,11 +33,15 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe(
       (res) => {
         this.toastService.showOnSuccess('Success! You are signed in.')
-        this.router.navigate([RouteNames.Home, RouteNames.Spinner])
+        if (this.authService.isAdmin) {
+          this.router.navigate([RouteNames.Home, RouteNames.Admin])
+        } else {
+          this.router.navigate([RouteNames.Home, RouteNames.Spinner])
+        }
       },
       (error) => {
         this.toastService.showOnError('Fail! You are not signed in.')
-        this.router.navigate([RouteNames.Home, RouteNames.Spinner])
+        this.router.navigate([RouteNames.Home, RouteNames.Login])
       }
     )
   }
