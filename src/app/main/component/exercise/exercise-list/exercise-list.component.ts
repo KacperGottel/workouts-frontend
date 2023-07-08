@@ -5,6 +5,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
 import { UserService } from '../../user/service/user.service'
 import { ExerciseAddComponentModal } from '../exercise-add-modal/exercise-add-component-modal.component'
 import { AuthService } from '../../../../auth/auth.service'
+import { AdminService } from '../../admin/admin.service'
 
 @Component({
   selector: 'app-exercise-list',
@@ -16,19 +17,32 @@ export class ExerciseListComponent implements OnInit {
   page: any
   showPagination: boolean = true
   filterValue: string = ''
+  isAdmin: boolean = false
 
   constructor(
     private modalService: NgbModal,
     private userService: UserService,
-    private authService: AuthService
+    private authService: AuthService,
+    private adminService: AdminService
   ) {}
 
   ngOnInit(): void {
-    this.userService.getUserExercises().subscribe((page) => {
-      this.page = page
-      this.userExercises = page.content
-      this.showPagination = page.size > 6
+    this.authService.isAdminSubject.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin
     })
+    if (this.isAdmin) {
+      this.adminService.getExercisesForAcceptance().subscribe((page) => {
+        this.page = page
+        this.userExercises = page.content
+        this.showPagination = page.size > 6
+      })
+    } else {
+      this.userService.getUserExercises().subscribe((page) => {
+        this.page = page
+        this.userExercises = page.content
+        this.showPagination = page.size > 6
+      })
+    }
   }
 
   openExerciseDetails(exercise: Exercise): void {
@@ -48,18 +62,36 @@ export class ExerciseListComponent implements OnInit {
   }
 
   pageChange(pageNumber: number) {
-    this.userService.getUserExercises(pageNumber).subscribe((page) => {
-      this.page = page
-      this.userExercises = page.content
-    })
-  }
-
-  change(filterValue: string) {
-    this.userService
-      .getUserExercises(0, 7, 'category, asc', filterValue)
-      .subscribe((page) => {
+    if (this.isAdmin) {
+      this.adminService
+        .getExercisesForAcceptance(pageNumber)
+        .subscribe((page) => {
+          this.page = page
+          this.userExercises = page.content
+        })
+    } else {
+      this.userService.getUserExercises(pageNumber).subscribe((page) => {
         this.page = page
         this.userExercises = page.content
       })
+    }
+  }
+
+  change(filterValue: string) {
+    if (this.isAdmin) {
+      this.adminService
+        .getExercisesForAcceptance(0, 7, 'category, asc', filterValue)
+        .subscribe((page) => {
+          this.page = page
+          this.userExercises = page.content
+        })
+    } else {
+      this.userService
+        .getUserExercises(0, 7, 'category, asc', filterValue)
+        .subscribe((page) => {
+          this.page = page
+          this.userExercises = page.content
+        })
+    }
   }
 }
