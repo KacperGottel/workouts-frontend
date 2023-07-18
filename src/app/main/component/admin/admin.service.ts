@@ -24,8 +24,4 @@ export class AdminService {
       .set('filter', filter)
     return this.http.get<Page<Exercise>>(adminExercises, { params })
   }
-
-  // sendApprovedList(email: string, username: string): Observable<any> {
-  //   return this.http.post(admin, { email: email, username: username })
-  // }
 }

@@ -6,6 +6,11 @@ export enum ExerciseCategory {
   LEGS = 'LEGS',
   ACCESSORY = 'ACCESSORY',
 }
+export enum ExerciseStatus {
+  WAITING_FOR_ACCEPTANCE = 'WAITING_FOR_ACCEPTANCE',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
+}
 
 @JsonObject('ExerciseDTO')
 export class Exercise {
@@ -25,6 +30,8 @@ export class Exercise {
   public series: string | undefined
   @JsonProperty('reps', String, true)
   public reps: string | undefined
+  @JsonProperty('status', [ExerciseStatus], true)
+  public status: string | undefined
 }
 
 @JsonObject('WorkoutDTO')

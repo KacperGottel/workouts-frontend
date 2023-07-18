@@ -24,12 +24,11 @@ export class ExerciseListComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private adminService: AdminService
-  ) {}
+  ) {
+    this.isAdmin = this.authService.isAdmin
+  }
 
   ngOnInit(): void {
-    this.authService.isAdminSubject.subscribe((isAdmin) => {
-      this.isAdmin = isAdmin
-    })
     if (this.isAdmin) {
       this.adminService.getExercisesForAcceptance().subscribe((page) => {
         this.page = page
