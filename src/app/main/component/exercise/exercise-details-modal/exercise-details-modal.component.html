@@ -1,23 +1,44 @@
-<div class="container">
-  <div class="exercise-details-modal">
-    <div class="modal-header">
-      <div class="name">[{{ exercise?.category }}] {{ exercise?.name }}</div>
+<div class='container'>
+  <div class='exercise-details-modal'>
+    <div class='modal-header'>
+      <div class='name'>[{{ exercise?.category }}] {{ exercise?.name }}</div>
     </div>
-    <div class="modal-content">
-      <div class="exercise-image">
-        <img src="{{ exercise?.img_url }}" alt="{{ exercise?.name }}" fill />
+    <div class='modal-content'>
+      <div class='exercise-image'>
+        <img src='{{ exercise?.img_url }}' alt='{{ exercise?.name }}' fill />
       </div>
-      <div class="description">{{ exercise?.description }}</div>
-      <div class="youtube-player" *ngIf="exercise?.video_url">
-        <app-youtube [url]="exercise?.video_url"></app-youtube>
+      <div class='description'>{{ exercise?.description }}</div>
+      <div class='youtube-player' *ngIf='exercise?.video_url'>
+        <app-youtube [url]='exercise?.video_url'></app-youtube>
       </div>
     </div>
-    <div class="modal-footer">
-      <div class="neon-button">
+    <div class='modal-footer'>
+      <div class='judgement' *ngIf='isAdmin'>
+          <div class='reject-button'>
+            <button
+              (click)='onRejectClick(exercise?.id)'
+              [disabled]='isActive'
+              aria-label='REJECT'
+            >
+              REJECT
+            </button>
+          </div>
+          <div class='accept-button'>
+            <button
+              class='accept'
+              (click)='onAcceptClick(exercise?.id)'
+              [disabled]='isActive'
+              aria-label='ACCEPT'
+            >
+              ACCEPT
+            </button>
+          </div>
+      </div>
+      <div class='neon-button'>
         <button
           (click)="modal.close('Cancel')"
-          [disabled]="isActive"
-          aria-label="Close"
+          [disabled]='isActive'
+          aria-label='Close'
         >
           Close
         </button>

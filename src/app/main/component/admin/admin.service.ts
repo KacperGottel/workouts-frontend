@@ -24,4 +24,14 @@ export class AdminService {
       .set('filter', filter)
     return this.http.get<Page<Exercise>>(adminExercises, { params })
   }
+
+  rejectExercise(id: number): Observable<any> {
+    let params = new HttpParams().set('id', id)
+    return this.http.delete<any>(adminExercises, { params })
+  }
+
+  acceptExercise(id: number): Observable<any> {
+    let params = new HttpParams().set('id', id)
+    return this.http.post<any>(adminExercises, {}, { params })
+  }
 }
