@@ -1,1 +1,8 @@
-<p>user-list works!</p>
+<div class='container'>
+  <div class='search'>
+    <input type='text' id='search' placeholder='Search...' [(ngModel)]="filterValue" (ngModelChange)='change(filterValue)'
+           [ngbTooltip]="'Search for user'" [placement]="'top-left'" />
+  </div>
+<div class='list'></div>
+  <app-pagination *ngIf='showPagination' [page]='page' (pageChange)='pageChange($event)'></app-pagination>
+</div>

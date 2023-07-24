@@ -51,10 +51,13 @@ export class ExerciseListComponent implements OnInit {
         size: 'lg',
       })
       modalRef.componentInstance.exercise = exercise
+      modalRef.result.then((result) => {
+        this.ngOnInit()
+      })
     }
   }
   openExerciseAddForm(): void {
-    const modalRef = this.modalService.open(ExerciseAddComponentModal, {
+    this.modalService.open(ExerciseAddComponentModal, {
       windowClass: 'exercise-add-modal',
       size: 'lg',
     })
