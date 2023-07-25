@@ -4,7 +4,7 @@
       <input type='text' id='search' placeholder='Search...' [(ngModel)]="filterValue" (ngModelChange)='change(filterValue)'
              [ngbTooltip]="'Search in your exercises'" [placement]="'top-left'" />
     </div>
-    <div class='neon-button'>
+    <div class='neon-button' *ngIf='!isAdmin'>
       <button type='button' (click)='openExerciseAddForm()'>Add New!</button>
     </div>
   </div>

@@ -1,10 +1,16 @@
 .container {
   display: flex;
-  margin: 10px;
-  padding: 10px;
   flex-direction: column;
+  align-content: space-between;
+  margin: 25px;
+  padding: 10px;
+  height: 400px;
+  margin-bottom: 50px;
 }
 
+.not-added {
+  color: #9A0279CE;
+}
 
 .search {
   opacity: 0.6;
@@ -12,7 +18,7 @@
   color: rgba(197, 94, 174, 0.81);
   display: flex;
   flex-direction: column;
-  align-self: center;
+  align-self: flex-start;
   justify-self: flex-start;
 }
 
@@ -30,4 +36,60 @@
   box-sizing: border-box;
   background-color: rgb(32, 13, 63);
   color: #e85fb7;
+}
+
+.list{
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+}
+.list-card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 15px;
+}
+
+
+.user-created {
+  color: rgba(236, 98, 206, 0.81);
+  text-shadow: 1px 1px 1px #945bf5;
+  margin-right: 10px;
+  margin-left: 25px;
+  opacity: 0.8;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 1rem;
+  display: flex;
+  flex-flow: row;
+}
+
+.user-name {
+  opacity: 0.8;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 1.4rem;
+  display: flex;
+  flex-flow: row;
+  color: rgba(154, 2, 121, 0.81);
+  text-shadow: 1px 1px 1px #fa2d9c;
+}
+
+.user-name:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.user-email{
+  color: #6b5194;
 }
