@@ -8,8 +8,7 @@
   </div>
   <div class='list'>
     <div class='list-card' *ngIf='users'>
-      <div class='list-item' *ngFor='let user of users'>
-        <div class='user-created'>[{{user.created}}]</div>
+      <div class='list-item' *ngFor='let user of users' [ngClass]="{'disabled': user.scope === 'BLOCKED'}">
         <div class='user-name'>{{user.username}}<div class='user-email'>&nbsp;({{user.email}})</div></div>
       </div>
     </div>

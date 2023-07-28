@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component, OnInit } from '@angular/core'
 import { AdminService } from '../../admin.service'
 import { User } from '../../../../../model/User'
 
@@ -7,7 +7,7 @@ import { User } from '../../../../../model/User'
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.css'],
 })
-export class UserListComponent {
+export class UserListComponent implements OnInit {
   showPagination: boolean = true
   page: any
   filterValue: string = ''
@@ -18,8 +18,13 @@ export class UserListComponent {
     user.username = 'ZbyszkoZbyszko'
     user.email = 'zbyszko@byszko.pl'
     user.created = '12.08.2009'
+  }
 
-    this.users = [user, user, user, user, user, user, user]
+  ngOnInit(): void {
+    this.adminService.getUsers(0, 7, 'username, asc', '').subscribe((page) => {
+      this.page = page
+      this.users = page.content
+    })
   }
 
   pageChange(pageNumber: number) {
@@ -36,4 +41,6 @@ export class UserListComponent {
         this.users = page.content
       })
   }
+
+  protected readonly User = User
 }
