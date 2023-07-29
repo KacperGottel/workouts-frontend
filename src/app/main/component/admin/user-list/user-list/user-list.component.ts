@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { AdminService } from '../../admin.service'
-import { User } from '../../../../../model/User'
+import { User, UserStatus } from '../../../../../model/User'
 
 @Component({
   selector: 'app-user-list',
@@ -11,14 +11,10 @@ export class UserListComponent implements OnInit {
   showPagination: boolean = true
   page: any
   filterValue: string = ''
-  users: any
+  users: User[] | any
+  protected readonly UserStatus = UserStatus
 
-  constructor(private adminService: AdminService) {
-    const user = new User()
-    user.username = 'ZbyszkoZbyszko'
-    user.email = 'zbyszko@byszko.pl'
-    user.created = '12.08.2009'
-  }
+  constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
     this.adminService.getUsers(0, 7, 'username, asc', '').subscribe((page) => {
@@ -41,6 +37,4 @@ export class UserListComponent implements OnInit {
         this.users = page.content
       })
   }
-
-  protected readonly User = User
 }
