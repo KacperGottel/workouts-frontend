@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { AdminService } from '../../admin.service'
 import { User, UserStatus } from '../../../../../model/User'
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap'
+import { UserDetailsModal } from '../../user-details-modal/user-details-modal.component'
 
 @Component({
   selector: 'app-user-list',
@@ -14,7 +16,10 @@ export class UserListComponent implements OnInit {
   users: User[] | any
   protected readonly UserStatus = UserStatus
 
-  constructor(private adminService: AdminService) {}
+  constructor(
+    private adminService: AdminService,
+    private modalService: NgbModal
+  ) {}
 
   ngOnInit(): void {
     this.adminService.getUsers(0, 7, 'username, asc', '').subscribe((page) => {
@@ -36,5 +41,16 @@ export class UserListComponent implements OnInit {
         this.page = page
         this.users = page.content
       })
+  }
+
+  openUserDetails(user: User) {
+    const modalRef = this.modalService.open(UserDetailsModal, {
+      windowClass: 'user-modal',
+      centered: true,
+    })
+    modalRef.componentInstance.user = user
+    modalRef.result.then((result) => {
+      this.ngOnInit()
+    })
   }
 }

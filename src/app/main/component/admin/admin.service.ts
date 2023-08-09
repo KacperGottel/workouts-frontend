@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { Observable } from 'rxjs'
-import { adminExercises, adminUsers } from '../../../model/Api'
+import {
+  adminExercises,
+  adminUsers,
+  blockUser,
+  removeUser,
+} from '../../../model/Api'
 import { Page } from '../../../model/Page'
 import { Exercise } from '../../../model/Workout'
 import { User } from '../../../model/User'
@@ -48,5 +53,14 @@ export class AdminService {
       .set('sort', sort)
       .set('filter', filter)
     return this.http.get<Page<User>>(adminUsers, { params })
+  }
+
+  blockUser(id: number): Observable<any> {
+    let params = new HttpParams().set('id', id)
+    return this.http.delete<any>(adminUsers + blockUser, { params })
+  }
+  removeUser(id: number): Observable<any> {
+    let params = new HttpParams().set('id', id)
+    return this.http.delete<any>(adminUsers + removeUser, { params })
   }
 }

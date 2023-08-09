@@ -24,22 +24,31 @@
             user.status === UserStatus.BLOCKED,
           deleted: user.status === UserStatus.DELETED
         }"
+        (click)='openUserDetails(user)'
       >
         <div
           class="blocked-circle"
           *ngIf="user.status === UserStatus.BLOCKED"
+          [ngbTooltip]="'BLOCKED'"
+          [placement]="'left'"
         ></div>
         <div
           class="deleted-circle"
           *ngIf="user.status === UserStatus.DELETED"
+          [ngbTooltip]="'REMOVED'"
+          [placement]="'left'"
         ></div>
         <div
           class="enabled-circle"
           *ngIf="user.status === UserStatus.ENABLED"
+          [ngbTooltip]="'ACTIVE'"
+          [placement]="'left'"
         ></div>
         <div
           class="disabled-circle"
           *ngIf="user.status === UserStatus.DISABLED"
+          [ngbTooltip]="'INACTIVE'"
+          [placement]="'left'"
         ></div>
         <div class="user-name">
           {{ user.username }}
