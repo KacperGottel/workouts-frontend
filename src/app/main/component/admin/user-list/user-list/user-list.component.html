@@ -18,13 +18,13 @@
         class="list-item"
         *ngFor="let user of users"
         [ngClass]="{
+          deleted: user.status === UserStatus.DELETED,
           disabled:
             user.status === UserStatus.DISABLED ||
             user.status === UserStatus.DELETED ||
-            user.status === UserStatus.BLOCKED,
-          deleted: user.status === UserStatus.DELETED
+            user.status === UserStatus.BLOCKED
         }"
-        (click)='openUserDetails(user)'
+        (click)="openUserDetails(user)"
       >
         <div
           class="blocked-circle"
