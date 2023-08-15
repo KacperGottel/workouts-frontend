@@ -1,0 +1,36 @@
+<div class='login-card'>
+  <div class='login-content'>
+    <div class='login-title'>
+      <div >SIGN IN</div>
+    </div>
+    <div class='register-paragraph'>
+        <p>Not registered? <a routerLink='{{registerRoute}}'>Join us</a> today and gain access to a range of exclusive
+          features.</p>
+    </div>
+    <div class='form'>
+      <form [formGroup]='loginForm' (ngSubmit)='onSubmit()' *ngIf='loginForm'>
+        <div class='inputs'>
+          <div class='login-email'>
+            <label for='email'>Email</label>
+            <input formControlName='email' type='email' id='email' placeholder='Email'
+                   [disableTooltip]="!loginForm.get('email')?.valid"
+                   [ngbTooltip]="'Email is required'" [placement]="'top'" />
+          </div>
+          <div class='login-password'>
+            <label for='password'>Password</label>
+            <input formControlName='password' type='password' id='password' placeholder='Password'
+                   [disableTooltip]="!loginForm.get('password')?.valid"
+                   [ngbTooltip]="'Passwords is required'" [placement]="'top'" />
+          </div>
+        </div>
+        <div class='login-button'>
+          <div class='neon-button'>
+            <button type='button' (click)='onCancel()'>Cancel</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type='submit' [disabled]='!loginForm.valid && loginForm.touched'>Sign in</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

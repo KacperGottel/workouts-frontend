@@ -1,18 +1,17 @@
-import {EventEmitter, Injectable, OnInit} from '@angular/core';
+import { EventEmitter, Injectable, OnInit } from '@angular/core'
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class SharedService implements OnInit{
+export class SharedService implements OnInit {
+  private isSpinnerEnabled = true
+  isSpinnerEnabledEmitter = new EventEmitter<boolean>()
 
-  private isSpinnerEnabled = true;
-  isSpinnerEnabledEmitter = new EventEmitter<boolean>();
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.isSpinnerEnabledEmitter.subscribe(val => {
-      this.isSpinnerEnabled = val;
+    this.isSpinnerEnabledEmitter.subscribe((val) => {
+      this.isSpinnerEnabled = val
     })
   }
 }

@@ -1,0 +1,45 @@
+<div class='register-card'>
+  <div class='login-content'>
+    <div class='login-title'>SIGN UP</div>
+    <div class='register-paragraph'>
+      <p>Register your account to have full access to platform and add your own exercises!</p>
+    </div>
+    <form [formGroup]='registerForm' (ngSubmit)='onSubmit()' *ngIf='registerForm'>
+      <div class='inputs'>
+        <div class='username'>
+          <label for='username'>Username</label>
+          <input formControlName='username' type='text' id='username' required placeholder='Username'
+                 [disableTooltip]="!registerForm.get('username')?.invalid"
+                 [ngbTooltip]="'Username is required'" [placement]="'top'" />
+        </div>
+        <div class='login-email'>
+          <label for='email'>Email</label>
+          <input formControlName='email' type='email' id='email' required email placeholder='Email'
+                 [disableTooltip]="!registerForm.get('email')?.invalid"
+                 [ngbTooltip]="'Email is not correct'" [placement]="'top'" />
+        </div>
+        <div class='login-password'>
+          <label for='password'>Password</label>
+          <input formControlName='password' type='password' id='password' required placeholder='Password'
+                 [disableTooltip]="!registerForm.get('password')?.invalid"
+                 [ngbTooltip]="'Passwords must have 8-16 signs,\n can not be same like email '" [placement]="'top'" />
+        </div>
+        <div class='login-password'>
+          <label for='repeat-password'>Repeat password</label>
+          <input formControlName='repeatPassword' required type='password' id='repeat-password' placeholder='Repeat password'
+                 [disableTooltip]="registerForm.get('password')?.value === registerForm.get('repeatPassword')?.value"
+                 [ngbTooltip]="'Passwords must be  identical'" [placement]="'top'" />
+        </div>
+      </div>
+      <div class='register-button'>
+        <div class='neon-button'>
+          <button type='button' (click)='onCancel()'>Cancel</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type='submit'
+                  [disabled]='(!arePasswordsIdentical) || (!registerForm.valid && registerForm.touched)'>Sign Up!
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

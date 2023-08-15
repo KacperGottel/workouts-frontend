@@ -1,0 +1,209 @@
+.container {
+  border: 1px solid blueviolet;
+  padding: 25px;
+  background: #010101;
+}
+
+.exercise-details-modal .modal {
+  border: 1px solid white;
+  display: flex;
+}
+
+.exercise-details-modal {
+  border: none;
+  color: #f864b4;
+}
+
+.exercise-details-modal .modal-content {
+  background: #010101;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0;
+  border: none;
+  align-items: center;
+}
+
+.exercise-details-modal .modal-header {
+  border-radius: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.exercise-details-modal .modal-footer {
+  border-radius: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.neon-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #6b5194;
+  width: 400px;
+  padding: 10px;
+  background: #6b5194 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #6b5194;
+  border-radius: 0;
+  margin: 10px;
+}
+
+.neon-button button:hover {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  color: rgba(252, 119, 222, 0.81);
+  background: -webkit-repeating-linear-gradient(#743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: rgba(252, 119, 222, 0.81);
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.name {
+  color: rgba(154, 2, 121, 0.81);
+  text-shadow: 1px 1px 1px #743ad5;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 2.4rem;
+}
+
+.description {
+  padding: 10px;
+  margin: 20px;
+  color: rgba(154, 2, 121, 0.92);
+  text-shadow: 1px 1px 1px #743ad5;
+  text-decoration: #010101;
+  font-family: system-ui;
+  font-weight: lighter;
+  font-size: 1.4rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.exercise-image img {
+  width: 250px;
+  padding: 20px;
+  background-color: black;
+}
+
+.youtube-player {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.judgement {
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+}
+/*REJECT BUTTON*/
+.reject-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #b20909;
+  width: 200px;
+  padding: 10px;
+  background: #860413 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #9b053f;
+  border-radius: 0;
+  margin: 10px;
+}
+
+.reject-button button:hover {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #fa999c, #ce030a);
+  color: #fa999c;
+  background: -webkit-repeating-linear-gradient(#fa999c, #ce030a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reject-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #b20909;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #fa999c, #ce030a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*ACCEPT BUTTON*/
+
+.accept-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #33b209;
+  width: 200px;
+  padding: 10px;
+  background: #33b209 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #33b209;
+  border-radius: 0;
+  margin: 10px;
+}
+
+.accept-button button:hover {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #aef657, #3ff105);
+  color: #33b209;
+  background: -webkit-repeating-linear-gradient(#aef657, #33b209);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.accept-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #33b209;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #aef657, #3ff105);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

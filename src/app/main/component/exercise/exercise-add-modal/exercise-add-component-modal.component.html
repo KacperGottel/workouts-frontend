@@ -1,0 +1,140 @@
+<div class="container">
+  <div class="exercise-add-modal">
+    <div class="title">
+      <div>ADD EXERCISE</div>
+    </div>
+
+    <div class="form-box">
+      <div>
+        <form
+          class="form"
+          [formGroup]="exerciseForm"
+          (ngSubmit)="onSubmit()"
+          *ngIf="exerciseForm && isReady"
+        >
+          <div class="column-left">
+            <div class="form-group default">
+              <label for="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                placeholder="Name"
+                [disableTooltip]="!exerciseForm.get('name')?.invalid"
+                [ngbTooltip]="'Exercise name is required'"
+                [placement]="'top'"
+              />
+            </div>
+            <div class="form-group select">
+              <label for="category">Category:</label>
+              <select
+                id="category"
+                formControlName="category"
+                [disableTooltip]="!exerciseForm.get('category')?.invalid"
+                [ngbTooltip]="'Exercise category is required'"
+                [placement]="'top'"
+              ><option
+                value=""
+                class="option"
+              >
+                {{ 'Choose category...' }}
+              </option>
+                <option
+                  *ngFor="let category of categories"
+                  value="{{ category }}"
+                  class="option"
+                >
+                  {{ category | uppercase }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group description">
+              <label for="description">Description:</label>
+              <textarea
+                type="text"
+                id="description"
+                formControlName="description"
+                placeholder="Describe in details..."
+                [disableTooltip]="!exerciseForm.get('description')?.invalid"
+                [ngbTooltip]="'Exercise description is required'"
+                [placement]="'bottom'"
+              ></textarea>
+            </div>
+          </div>
+          <div class="column-right">
+            <div class="form-group default">
+              <div class="series-reps">
+                <div>
+                  <label for="series">Series:</label>
+                  <input
+                    type="number"
+                    min="3"
+                    max="8"
+                    id="series"
+                    formControlName="series"
+                    placeholder="Series"
+                    [disableTooltip]="!exerciseForm.get('series')?.invalid"
+                    [ngbTooltip]="'Series are required [3-8]'"
+                    [placement]="'bottom'"
+                  />
+                </div>
+                <div>
+                  <label for="reps">Reps:</label>
+                  <input
+                    type="number"
+                    min="2"
+                    max="15"
+                    id="reps"
+                    formControlName="reps"
+                    placeholder="Reps"
+                    [disableTooltip]="!exerciseForm.get('reps')?.invalid"
+                    [ngbTooltip]="
+                      'Reps are required [2-15]'
+                    "
+                    [placement]="'bottom'"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group default">
+              <label for="videoUrl">YouTube video link:</label>
+              <input
+                type="text"
+                id="videoUrl"
+                formControlName="videoUrl"
+                placeholder="YouTube video link"
+                [disableTooltip]="!!exerciseForm.get('videoUrl')?.touched"
+                [ngbTooltip]="'Exercise YouTube video link'"
+                [placement]="'bottom'"
+              />
+            </div>
+            <div class="form-group default">
+              <label for="imgUrl">Image link:</label>
+              <input
+                type="text"
+                id="imgUrl"
+                formControlName="imgUrl"
+                placeholder="Image link"
+                [disableTooltip]="!!exerciseForm.get('imgUrl')?.touched"
+                [ngbTooltip]="'Exercise image link'"
+                [placement]="'top'"
+              />
+            </div>
+            <div class="form-group neon-button form-buttons">
+              <button type="button" (click)="modal.close('Cancel')">
+                Cancel
+              </button>
+              <button
+                type="submit"
+                [ngClass]="{'disabled': exerciseForm.invalid}"
+                [disabled]="exerciseForm.invalid && exerciseForm.touched"
+              >
+                Add!
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

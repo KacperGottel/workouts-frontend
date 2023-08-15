@@ -16,17 +16,14 @@
             "outputPath": "dist/workouts-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/scss/bootstrap.scss",
               "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/assets/css/workout-styles.css",
               "src/styles.css"
             ],
             "scripts": [
@@ -34,6 +31,8 @@
             ]
           },
           "configurations": {
+            "dev": {},
+            "prod": {},
             "production": {
               "budgets": [
                 {
@@ -58,11 +57,17 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "dev"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "dev": {
+              "browserTarget": "workouts-frontend:build:dev"
+            },
+            "prod": {
+              "browserTarget": "workouts-frontend:build:prod"
+            },
             "production": {
               "browserTarget": "workouts-frontend:build:production"
             },
@@ -81,17 +86,11 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/favicon.svg",
-              "src/assets"
-            ],
+            "assets": ["src/favicon.ico", "src/favicon.svg", "src/assets"],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
