@@ -1,0 +1,135 @@
+.container {
+  border: 1px solid blueviolet;
+  padding: 10px;
+  background: #010101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 500px;
+}
+
+.user-modal {
+  opacity: 0.9;
+  padding: 5px;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: black;
+}
+
+.user-modal:hover {
+  opacity: 1;
+}
+
+.neon-button button {
+  width: 300px;
+}
+
+.neon-button{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+  margin-top: 100px;
+}
+
+.footer{
+  margin: 10px;
+}
+
+.judgement {
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+}
+/*REJECT BUTTON*/
+.reject-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #b20909;
+  width: 200px;
+  padding: 10px;
+  background: #860413 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #9b053f;
+  border-radius: 0;
+  margin: 10px;
+}
+
+.reject-button button:hover {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #fa999c, #ce030a);
+  color: #fa999c;
+  background: -webkit-repeating-linear-gradient(#fa999c, #ce030a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.reject-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #b20909;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to left, #fa999c, #ce030a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/*BLOCK BUTTON*/
+.block-button button {
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #4f4d4d;
+  width: 200px;
+  padding: 10px;
+  background: #4b4646 none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border-width: 1px;
+  border-color: #989494;
+  border-radius: 0;
+  margin: 10px;
+}
+
+.block-button button:hover {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to top left, #4f4d4d, #9a9797 );
+  color: #9a9797;
+  background: -webkit-repeating-linear-gradient(#4f4d4d, #9a9797);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.block-button button:focus {
+  background: none;
+  text-decoration: inherit;
+  font-family: system-ui;
+  font-size: 1rem;
+  color: #4f4d4d;
+  border-image-slice: 1;
+  border-width: 1px;
+  border-image-source: linear-gradient(to top left, #4f4d4d, #9a9797 );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -13,6 +13,7 @@ import { ToastService } from '../../utils/toast/toast.service'
 export class HeaderComponent implements OnInit {
   loginButtonName: string = 'SIGN IN'
   public isUserLogged = false
+  public isAdmin = false
 
   constructor(
     private sharedService: SharedService,
@@ -24,6 +25,9 @@ export class HeaderComponent implements OnInit {
     this.authService.isLoggedSubject.subscribe((isLogged) => {
       this.isUserLogged = isLogged
       this.loginButtonName = isLogged ? 'SIGN OUT' : 'SIGN IN'
+    })
+    this.authService.isAdminSubject.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin
     })
   }
 

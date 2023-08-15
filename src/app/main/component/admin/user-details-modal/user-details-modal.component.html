@@ -1,0 +1,33 @@
+<div class='container' *ngIf="isReady">
+  <div class='footer'>
+    <div class='judgement'>
+      <div class='block-button'>
+        <button
+          (click)='onBlockClick()'
+          [disabled]='!isReady || user.status === UserStatus.BLOCKED'
+          aria-label='BLOCK'
+        >
+          BLOCK
+        </button>
+      </div>
+      <div class='reject-button'>
+        <button
+          (click)='onRemoveClick()'
+          [disabled]='!isReady || user.status === UserStatus.DELETED'
+          aria-label='REMOVE'
+        >
+          REMOVE
+        </button>
+      </div>
+    </div>
+    <div class='neon-button'>
+      <button
+        (click)="modal.close('Cancel')"
+        [disabled]='!isReady'
+        aria-label='Close'
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>

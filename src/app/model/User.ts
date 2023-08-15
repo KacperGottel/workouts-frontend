@@ -1,5 +1,12 @@
 import { JsonObject, JsonProperty } from 'json2typescript'
 
+export enum UserStatus {
+  ENABLED = 'ENABLED',
+  DISABLED = 'DISABLED',
+  BLOCKED = 'BLOCKED',
+  DELETED = 'DELETED',
+}
+
 @JsonObject('UserDTO')
 export class User {
   @JsonProperty('id', Number, true)
@@ -10,8 +17,8 @@ export class User {
   public username: string | undefined
   @JsonProperty('scope', String, true)
   public authority: string | undefined
-  @JsonProperty('status', String, true)
-  public status: string | undefined
+  @JsonProperty('status', [UserStatus], true)
+  public status: UserStatus | undefined
   @JsonProperty('user_token', String, true)
   public userToken: string | undefined
   @JsonProperty('created', String, true)

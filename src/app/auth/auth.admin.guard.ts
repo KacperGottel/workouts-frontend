@@ -12,13 +12,13 @@ import { RouteNames } from '../model/RouteNames'
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class AuthAdminGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | Observable<boolean> {
-    if (this.authService.isLoggedIn() && !this.authService.isAdmin) {
+    if (this.authService.isLoggedIn() && this.authService.isAdmin) {
       return true
     }
     this.router.navigate([RouteNames.Home, RouteNames.Login])

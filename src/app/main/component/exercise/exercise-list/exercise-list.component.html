@@ -4,7 +4,7 @@
       <input type='text' id='search' placeholder='Search...' [(ngModel)]="filterValue" (ngModelChange)='change(filterValue)'
              [ngbTooltip]="'Search in your exercises'" [placement]="'top-left'" />
     </div>
-    <div class='neon-button'>
+    <div class='neon-button' *ngIf='!isAdmin'>
       <button type='button' (click)='openExerciseAddForm()'>Add New!</button>
     </div>
   </div>
@@ -16,7 +16,8 @@
       </div>
     </div>
     <div class='list-card' *ngIf='!userExercises'>
-      <div class='not-added'>You have not added any exercise yet!</div>
+      <div class='not-added' *ngIf='!isAdmin'>You have not added any exercise yet!</div>
+      <div class='not-added' *ngIf='isAdmin'>You have no exercises to accept!</div>
     </div>
   </div>
 </div>

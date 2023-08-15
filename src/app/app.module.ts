@@ -18,6 +18,7 @@ import { SafePipe } from './utils/safe.pipe'
 import { LoginComponent } from './main/component/login/login/login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { AuthGuard } from './auth/auth.guard'
+import { AuthAdminGuard } from './auth/auth.admin.guard'
 import { RouteNames } from './model/RouteNames'
 import { RegisterComponent } from './main/component/register/register/register.component'
 import { UserComponent } from './main/component/user/user/user.component'
@@ -28,6 +29,9 @@ import { ExerciseAddComponentModal } from './main/component/exercise/exercise-ad
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CustomToastComponent } from './utils/toast/custom-toast/custom-toast.component'
 import { AdminComponent } from './main/component/admin/admin.component'
+import { UserListComponent } from './main/component/admin/user-list/user-list/user-list.component'
+import { UserDetailsModal } from './main/component/admin/user-details-modal/user-details-modal.component';
+import { FooterComponent } from './footer/footer.component'
 
 const routes: Routes = [
   {
@@ -49,9 +53,12 @@ const routes: Routes = [
       {
         path: RouteNames.Admin,
         component: AdminComponent,
-        canActivate: [AuthGuard],
+        canActivate: [AuthAdminGuard],
       },
-      { path: RouteNames.Spinner, component: SpinnerComponent },
+      {
+        path: RouteNames.Spinner,
+        component: SpinnerComponent,
+      },
       {
         path: RouteNames.Workout,
         component: WorkoutComponent,
@@ -80,6 +87,9 @@ const routes: Routes = [
     ExerciseAddComponentModal,
     CustomToastComponent,
     AdminComponent,
+    UserListComponent,
+    UserDetailsModal,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
