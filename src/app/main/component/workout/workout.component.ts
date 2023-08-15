@@ -35,4 +35,8 @@ export class WorkoutComponent implements OnInit {
       modalRef.componentInstance.exercise = exercise
     }
   }
+
+  onDownload() {
+    this.workoutService.downloadPdf(this.workout)
+  }
 }

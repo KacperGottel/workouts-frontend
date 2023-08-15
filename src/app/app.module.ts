@@ -30,7 +30,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { CustomToastComponent } from './utils/toast/custom-toast/custom-toast.component'
 import { AdminComponent } from './main/component/admin/admin.component'
 import { UserListComponent } from './main/component/admin/user-list/user-list/user-list.component'
-import { UserDetailsModal } from './main/component/admin/user-details-modal/user-details-modal.component'
+import { UserDetailsModal } from './main/component/admin/user-details-modal/user-details-modal.component';
+import { FooterComponent } from './footer/footer.component'
 
 const routes: Routes = [
   {
@@ -88,6 +89,7 @@ const routes: Routes = [
     AdminComponent,
     UserListComponent,
     UserDetailsModal,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

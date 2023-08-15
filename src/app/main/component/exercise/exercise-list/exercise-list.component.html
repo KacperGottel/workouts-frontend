@@ -16,7 +16,8 @@
       </div>
     </div>
     <div class='list-card' *ngIf='!userExercises'>
-      <div class='not-added'>You have not added any exercise yet!</div>
+      <div class='not-added' *ngIf='!isAdmin'>You have not added any exercise yet!</div>
+      <div class='not-added' *ngIf='isAdmin'>You have no exercises to accept!</div>
     </div>
   </div>
 </div>
